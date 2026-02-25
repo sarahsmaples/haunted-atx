@@ -1,0 +1,58 @@
+<footer class="bg-gray-900 text-white">
+  <div class="w-full max-w-screen-xl mx-auto px-4 py-10">
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+
+      <!-- NAP: Name, Address, Phone (critical for local SEO) -->
+      <div>
+        <a href="/" class="flex items-center mb-4 space-x-3">
+          <img src="/assets/images/logo.png" class="h-8" alt="{{ client.name }} Logo"/>
+          <span class="self-center text-xl font-semibold">{{ client.name }}</span>
+        </a>
+        <address class="not-italic text-gray-400 text-sm space-y-1">
+          <p>{{ client.address.street }}</p>
+          <p>{{ client.address.city }}, {{ client.address.state }} {{ client.address.zip }}</p>
+          <p class="mt-2">
+            <a href="tel:{{ client.phone | replace('-', '') | replace(' ', '') }}" class="hover:text-white transition-colors">{{ client.phone }}</a>
+          </p>
+          <p>
+            <a href="mailto:{{ client.email }}" class="hover:text-white transition-colors">{{ client.email }}</a>
+          </p>
+        </address>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h2 class="text-sm font-semibold uppercase tracking-wider mb-4">Quick Links</h2>
+        <ul class="text-gray-400 text-sm space-y-2">
+          <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+          <li><a href="/tours/" class="hover:text-white transition-colors">Tours</a></li>
+          <li><a href="/about/" class="hover:text-white transition-colors">About</a></li>
+          <li><a href="/contact/" class="hover:text-white transition-colors">Contact</a></li>
+          {% if client.bookingUrl %}
+          <li><a href="{{ client.bookingUrl }}" class="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">Book a Tour</a></li>
+          {% endif %}
+        </ul>
+      </div>
+
+      <!-- Social Links -->
+      <div>
+        <h2 class="text-sm font-semibold uppercase tracking-wider mb-4">Follow Us</h2>
+        <ul class="text-gray-400 text-sm space-y-2">
+          {% for profile in client.social %}
+          <li>
+            <a href="{{ profile.url }}" class="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">{{ profile.label }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+
+    <hr class="border-gray-700"/>
+    <p class="mt-6 text-sm text-gray-500 text-center">
+      &copy; {{ global.currentYear }} {{ client.name }}. All Rights Reserved.
+    </p>
+
+  </div>
+</footer>

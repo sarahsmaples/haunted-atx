@@ -1,0 +1,94 @@
+---
+title: Home
+description: "Haunted ATX offers walking ghost tours through Austin's most haunted streets, historic buildings, and dark hidden history. Book a tour and discover the other side of Austin, TX."
+keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Austin, haunted history Austin TX, things to do at night Austin"
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block head %}
+<script src="https://v2.reservationgenie.com/haunted-atx/popup.js"></script>
+{% endblock %}
+
+{% block content %}
+  <!-- Hero Section -->
+  <section class="bg-gray-900 text-white">
+    <div class="grid max-w-screen-xl px-4 py-16 mx-auto lg:gap-8 xl:gap-0 lg:py-24 lg:grid-cols-12">
+      <div class="mr-auto place-self-center lg:col-span-7">
+        <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl">Dare to Discover Austin's Dark Side</h1>
+        <p class="max-w-2xl mb-6 font-light text-gray-400 lg:mb-8 md:text-lg lg:text-xl">Join Haunted ATX for an unforgettable walking ghost tour through the haunted streets, historic buildings, and chilling legends of Austin, Texas.</p>
+        <a href="{{ client.bookingUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300">
+          Book a Tour
+          <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a href="/tours/" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-300 border border-gray-600 rounded-lg hover:bg-gray-800 focus:ring-4 focus:ring-gray-700">
+          See Our Tours
+        </a>
+      </div>
+      <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+        <img src="/assets/images/hero.webp" alt="A lantern-lit street in haunted Austin, Texas">
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Value Prop Section -->
+  <section class="bg-gray-800 text-white">
+    <div class="gap-8 items-center py-12 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+      <img class="w-full rounded-lg" src="/assets/images/interior.webp" alt="Ghost tour guide leading a group through downtown Austin at night">
+      <div class="mt-4 md:mt-0">
+        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-white">Austin's history has a haunted side</h2>
+        <p class="mb-6 font-light text-gray-400 md:text-lg">From the notorious Servant Girl Annihilator murders of the 1880s to the restless spirits of the Driskill Hotel, Austin's past is stranger — and darker — than most people know. Our expert guides bring these stories to life on foot.</p>
+        <a href="/about/" class="inline-flex items-center text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-900 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+          Our Story
+          <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tours Preview Section -->
+  <section class="bg-gray-900 text-white py-12 px-4">
+    <div class="max-w-screen-xl mx-auto">
+      <h2 class="mb-2 text-3xl font-extrabold tracking-tight text-center">Choose Your Tour</h2>
+      <p class="mb-10 text-gray-400 text-center max-w-2xl mx-auto">All tours are walking tours through downtown Austin. No prior ghost-hunting experience required — just a sense of adventure.</p>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-purple-600 transition-colors">
+          <h3 class="text-xl font-bold mb-2">Classic Ghost Walk</h3>
+          <p class="text-gray-400 text-sm mb-4">The essential Haunted ATX experience. Visit Austin's most famously haunted locations and hear the stories behind them.</p>
+          <a href="/tours/" class="text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors">Learn more &rarr;</a>
+        </div>
+
+        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-purple-600 transition-colors">
+          <h3 class="text-xl font-bold mb-2">Historic Murder Tour</h3>
+          <p class="text-gray-400 text-sm mb-4">Trace the footsteps of Austin's most chilling true crime history, from the 1880s to the present day.</p>
+          <a href="/tours/" class="text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors">Learn more &rarr;</a>
+        </div>
+
+        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-purple-600 transition-colors">
+          <h3 class="text-xl font-bold mb-2">Private Group Tour</h3>
+          <p class="text-gray-400 text-sm mb-4">Book a private ghost tour for your group — perfect for bachelorette parties, corporate events, or a night out with friends.</p>
+          <a href="/contact/" class="text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors">Inquire &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="bg-gray-800 text-white py-12 px-4">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="max-w-2xl mx-auto text-center mb-10">
+        <h2 class="text-3xl font-extrabold tracking-tight mb-3">Get in Touch</h2>
+        <p class="text-gray-400">Have a question about our tours? We'd love to hear from you.</p>
+      </div>
+      <div class="max-w-2xl mx-auto">
+        <iframe src="https://v2.reservationgenie.com/haunted-atx/contact_form" width="100%" height="610" frameborder="0" style="border: none;" title="Contact Form"></iframe>
+      </div>
+    </div>
+  </section>
+{% endblock %}
