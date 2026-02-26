@@ -10,6 +10,14 @@ if (mobileToggle && mobileMenu) {
   });
 }
 
+// Shrink nav on scroll
+const mainNav = document.getElementById("main-nav");
+if (mainNav) {
+  window.addEventListener("scroll", () => {
+    mainNav.classList.toggle("nav-scrolled", window.scrollY > 60);
+  }, { passive: true });
+}
+
 // Tours dropdown — click toggle on mobile, hover handled by CSS on desktop
 const toursToggle = document.getElementById("tours-toggle");
 const toursMobile = document.getElementById("tours-mobile");

@@ -11,42 +11,68 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
 {% endblock %}
 
 {% block content %}
-  <!-- Hero Section -->
-  <section class="bg-gray-900 text-white">
-    <div class="grid max-w-screen-xl px-4 py-16 mx-auto lg:gap-8 xl:gap-0 lg:py-24 lg:grid-cols-12">
-      <div class="mr-auto place-self-center lg:col-span-7">
-        <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl">Dare to Discover Austin's Dark Side</h1>
-        <p class="max-w-2xl mb-6 font-light text-gray-400 lg:mb-8 md:text-lg lg:text-xl">Join Haunted ATX for an unforgettable walking ghost tour through the haunted streets, historic buildings, and chilling legends of Austin, Texas.</p>
-        <a href="{{ client.bookingUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300">
-          Book a Tour
-          <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-          </svg>
-        </a>
-        <a href="/tours/" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-300 border border-gray-600 rounded-lg hover:bg-gray-800 focus:ring-4 focus:ring-gray-700">
-          See Our Tours
-        </a>
-      </div>
-      <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-        <img src="{{ '/assets/images/hero.webp' | url }}" alt="A lantern-lit street in haunted Austin, Texas">
+  <!-- Hero Section: Full-width video background -->
+  <section class="relative overflow-hidden bg-gray-900" style="margin-top: -7.5rem; min-height: 100vh;">
+
+    <!-- YouTube video background (muted autoplay) -->
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <iframe
+        src="https://www.youtube.com/embed/fS6c3tWMHN0?autoplay=1&mute=1&loop=1&playlist=fS6c3tWMHN0&controls=0&rel=0&showinfo=0&modestbranding=1&playsinline=1"
+        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1.2); width: 177.78vh; min-width: 100%; height: 56.25vw; min-height: 100%;"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        title="Haunted ATX Ghost Tours"></iframe>
+    </div>
+
+    <!-- Dark overlay for text readability -->
+    <div class="absolute inset-0 bg-black/60" aria-hidden="true"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 flex items-center" style="min-height: 100vh;">
+      <div class="max-w-screen-xl px-4 py-24 mx-auto text-center text-white w-full">
+        <h1 class="max-w-4xl mx-auto mb-6 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl">Dare to Discover Austin's Dark Side</h1>
+        <p class="max-w-2xl mx-auto mb-8 font-light text-gray-300 md:text-lg lg:text-xl">JAustin's Only Ghost Tour on Wheels — Because the Dead Don't Walk.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="{{ client.bookingUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white rounded-lg bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 transition-colors">
+            Book a Tour
+            <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+          </a>
+          <a href="/tours/" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-gray-200 border border-gray-400 rounded-lg hover:bg-white/10 focus:ring-4 focus:ring-gray-700 transition-colors">
+            See Our Tours
+          </a>
+        </div>
       </div>
     </div>
+
   </section>
 
   <!-- About / Value Prop Section -->
   <section class="bg-gray-800 text-white">
-    <div class="gap-8 items-center py-12 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
-      <img class="w-full rounded-lg" src="{{ '/assets/images/interior.webp' | url }}" alt="Ghost tour guide leading a group through downtown Austin at night">
-      <div class="mt-4 md:mt-0">
-        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-white">Austin's history has a haunted side</h2>
-        <p class="mb-6 font-light text-gray-400 md:text-lg">From the notorious Servant Girl Annihilator murders of the 1880s to the restless spirits of the Driskill Hotel, Austin's past is stranger — and darker — than most people know. Our expert guides bring these stories to life on foot.</p>
-        <a href="/about/" class="inline-flex items-center text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-900 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-          Our Story
-          <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-          </svg>
-        </a>
+    <div class="md:grid md:grid-cols-2" style="min-height: 80vh;">
+
+      <!-- Left: Full-bleed image -->
+      <div class="p-8 flex" style="min-height: 50vh;">
+        <img class="w-full object-cover object-bottom rounded-lg" src="{{ '/assets/images/matties.png' | url }}" alt="Haunted ATX ghost tour vehicle">
       </div>
+
+      <!-- Right: Headline text + CTA -->
+      <div class="flex items-center px-10 py-16 bg-gray-800 lg:px-16">
+        <div>
+          <h2 class="text-white font-black" style="font-size: clamp(2.75rem, 7vw, 6rem); line-height: 0.9; letter-spacing: -0.02em;">
+            KEEP<br>AUSTIN<br>HAUNTED
+          </h2>
+          <p class="mt-8 text-gray-400 md:text-lg max-w-sm">Austin's dark history is waiting. Join us for a ghost tour unlike any other — on wheels, after dark, through the city's most haunted streets.</p>
+          <a href="{{ client.bookingUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center mt-6 px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 rounded-lg focus:ring-4 focus:ring-purple-900 transition-colors">
+            Book Your Tour
+            <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
     </div>
   </section>
 
