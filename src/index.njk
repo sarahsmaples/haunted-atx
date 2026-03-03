@@ -11,27 +11,25 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
 {% endblock %}
 
 {% block content %}
-  <!-- Hero Section: Full-width video background -->
+  <!-- Hero Section: Full-width image background -->
   <section class="relative overflow-hidden bg-gray-900" style="margin-top: -7.5rem; min-height: 100vh;">
 
-    <!-- YouTube video background (muted autoplay) -->
-    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <iframe
-        src="https://www.youtube.com/embed/fS6c3tWMHN0?autoplay=1&mute=1&loop=1&playlist=fS6c3tWMHN0&controls=0&rel=0&showinfo=0&modestbranding=1&playsinline=1"
-        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1.2); width: 177.78vh; min-width: 100%; height: 56.25vw; min-height: 100%;"
-        frameborder="0"
-        allow="autoplay; encrypted-media"
-        title="Haunted ATX Ghost Tours"></iframe>
-    </div>
+    <!-- Background image -->
+    <img
+      src="{{ '/assets/images/hero.jpg' | url }}"
+      alt=""
+      aria-hidden="true"
+      fetchpriority="high"
+      class="absolute inset-0 w-full h-full object-cover object-center">
 
     <!-- Dark overlay for text readability -->
     <div class="absolute inset-0 bg-black/60" aria-hidden="true"></div>
 
     <!-- Content -->
-    <div class="relative z-10 flex items-center" style="min-height: 100vh;">
-      <div class="max-w-screen-xl px-4 py-24 mx-auto text-center text-white w-full">
+    <div class="relative z-10 flex items-end" style="min-height: 100vh;">
+      <div class="max-w-screen-xl px-4 pt-40 pb-10 md:pb-14 mx-auto text-center text-white w-full">
         <h1 class="max-w-4xl mx-auto mb-6 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl">Dare to Discover Austin's Dark Side</h1>
-        <p class="max-w-2xl mx-auto mb-8 font-light text-gray-300 md:text-lg lg:text-xl">JAustin's Only Ghost Tour on Wheels — Because the Dead Don't Walk.</p>
+        <p class="max-w-2xl mx-auto mb-8 font-light text-gray-300 md:text-lg lg:text-xl">Austin's Only Ghost Tour on Wheels — Prices starting at $49 per person.</p>
         <div class="flex flex-wrap justify-center gap-4">
           <a href="{{ client.bookingUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white rounded-lg bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 transition-colors">
             Book a Tour
@@ -42,6 +40,20 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
           <a href="/tours/" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-gray-200 border border-gray-400 rounded-lg hover:bg-white/10 focus:ring-4 focus:ring-gray-700 transition-colors">
             See Our Tours
           </a>
+        </div>
+
+        <!-- Fleet image: desktop shows fleet.png, mobile shows black-profile.png -->
+        <div class="mt-16 md:mt-28 w-[95%] mx-auto">
+          <img
+            src="{{ '/assets/images/fleet.png' | url }}"
+            alt="Haunted ATX ghost tour vehicles"
+            loading="lazy"
+            class="hidden md:block w-full">
+          <img
+            src="{{ '/assets/images/black-profile.png' | url }}"
+            alt="Haunted ATX ghost tour vehicle"
+            loading="lazy"
+            class="md:hidden w-full">
         </div>
       </div>
     </div>
@@ -77,29 +89,50 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
   </section>
 
   <!-- Tours Preview Section -->
-  <section class="bg-gray-900 text-white py-12 px-4">
+  <section class="bg-gray-900 text-white py-16 px-4">
     <div class="max-w-screen-xl mx-auto">
-      <h2 class="mb-2 text-3xl font-extrabold tracking-tight text-center">Choose Your Tour</h2>
-      <p class="mb-10 text-gray-400 text-center max-w-2xl mx-auto">All tours are walking tours through downtown Austin. No prior ghost-hunting experience required — just a sense of adventure.</p>
-      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <h2 class="mb-3 text-4xl font-extrabold tracking-tight text-center">Choose Your Tour</h2>
+      <p class="mb-12 text-gray-400 text-center max-w-2xl mx-auto">No prior ghost-hunting experience required — just a sense of adventure.</p>
+      <div class="grid gap-8 sm:grid-cols-3">
 
-        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-purple-600 transition-colors">
-          <h3 class="text-xl font-bold mb-2">Classic Ghost Walk</h3>
-          <p class="text-gray-400 text-sm mb-4">The essential Haunted ATX experience. Visit Austin's most famously haunted locations and hear the stories behind them.</p>
-          <a href="/tours/" class="text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors">Learn more &rarr;</a>
-        </div>
+        <a href="/tours/public-hearse-tour/" class="group flex flex-col items-center text-center p-6 transition-colors">
+          <img
+            src="{{ '/assets/images/black-hearse.jpg' | url }}"
+            alt="Public Hearse Limo Tour"
+            width="288" height="288"
+            loading="lazy"
+            class="w-48 h-48 lg:w-72 lg:h-72 rounded-full object-cover mb-5 transition-opacity group-hover:opacity-90">
+          <h3 class="text-lg font-bold mb-2">Public Hearse Tour</h3>
+          <div class="text-purple-400 text-xs font-semibold uppercase tracking-widest mb-1">$99 / ticket</div>
+          <p class="text-gray-400 text-sm flex-1">Climb into a classic Cadillac hearse converted into a spooky limousine and explore Austin after dark.</p>
+          <span class="mt-4 text-purple-400 group-hover:text-purple-300 text-sm font-medium transition-colors">Learn more &rarr;</span>
+        </a>
 
-        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-purple-600 transition-colors">
-          <h3 class="text-xl font-bold mb-2">Historic Murder Tour</h3>
-          <p class="text-gray-400 text-sm mb-4">Trace the footsteps of Austin's most chilling true crime history, from the 1880s to the present day.</p>
-          <a href="/tours/" class="text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors">Learn more &rarr;</a>
-        </div>
+        <a href="/tours/public-van-tour/" class="group flex flex-col items-center text-center p-6 transition-colors">
+          <img
+            src="{{ '/assets/images/black-hearse.jpg' | url }}"
+            alt="Public Van Tour"
+            width="288" height="288"
+            loading="lazy"
+            class="w-48 h-48 lg:w-72 lg:h-72 rounded-full object-cover mb-5 transition-opacity group-hover:opacity-90">
+          <h3 class="text-lg font-bold mb-2">Public Van Tour</h3>
+          <div class="text-purple-400 text-xs font-semibold uppercase tracking-widest mb-1">From $49 / ticket</div>
+          <p class="text-gray-400 text-sm flex-1">More seats, air conditioning, and a custom art wrap — same haunted Austin history.</p>
+          <span class="mt-4 text-purple-400 group-hover:text-purple-300 text-sm font-medium transition-colors">Learn more &rarr;</span>
+        </a>
 
-        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-purple-600 transition-colors">
-          <h3 class="text-xl font-bold mb-2">Private Group Tour</h3>
-          <p class="text-gray-400 text-sm mb-4">Book a private ghost tour for your group — perfect for bachelorette parties, corporate events, or a night out with friends.</p>
-          <a href="/contact/" class="text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors">Inquire &rarr;</a>
-        </div>
+        <a href="/tours/paranormal-investigation/" class="group flex flex-col items-center text-center p-6 transition-colors">
+          <img
+            src="{{ '/assets/images/black-hearse.jpg' | url }}"
+            alt="Paranormal Investigation Experience"
+            width="288" height="288"
+            loading="lazy"
+            class="w-48 h-48 lg:w-72 lg:h-72 rounded-full object-cover mb-5 transition-opacity group-hover:opacity-90">
+          <h3 class="text-lg font-bold mb-2">Paranormal Investigation</h3>
+          <div class="text-purple-400 text-xs font-semibold uppercase tracking-widest mb-1">$59 / person</div>
+          <p class="text-gray-400 text-sm flex-1">Go hands-on with the spirits at The Clay Pit's historic Bertram Building every Saturday night.</p>
+          <span class="mt-4 text-purple-400 group-hover:text-purple-300 text-sm font-medium transition-colors">Learn more &rarr;</span>
+        </a>
 
       </div>
     </div>

@@ -96,7 +96,7 @@
   <body>
     {% include "components/header.njk" %}
     <main>
-      {% block content %}{% endblock %}
+      {% block content %}{{ content | safe }}{% endblock %}
     </main>
     {% include "components/footer.njk" %}
     <script src="{{ '/assets/js/main.js' | url }}"></script>
