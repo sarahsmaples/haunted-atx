@@ -696,6 +696,9 @@ video {
 .h-full {
   height: 100%;
 }
+.min-h-\[7rem\] {
+  min-height: 7rem;
+}
 .w-10 {
   width: 2.5rem;
 }
