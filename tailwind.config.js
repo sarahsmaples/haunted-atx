@@ -2,7 +2,15 @@
 module.exports = {
   content: ["./src/**/*.njk", "./src/**/*.html", "./src/**/*.md"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        crimson: {
+          DEFAULT: "#991B1B",
+          dark:    "#7B1111",
+          light:   "#B91C1C",
+        },
+      },
+    },
   },
   plugins: [],
 };

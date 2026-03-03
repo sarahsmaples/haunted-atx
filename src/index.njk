@@ -60,16 +60,18 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
 
   </section>
 
+  <!-- Marquee Banner -->
+  <div class="bg-purple-900 overflow-hidden py-4" aria-hidden="true">
+    <div class="marquee-track items-center">
+      {% for i in range(0, 8) %}<span class="text-white font-bold uppercase tracking-widest text-xl px-8">THRILLS</span><img src="{{ '/assets/images/ghost.png' | url }}" alt="" class="h-10 w-auto mx-4 opacity-80 inline-block"><span class="text-white font-bold uppercase tracking-widest text-xl px-8">CHILLS</span><img src="{{ '/assets/images/ghost.png' | url }}" alt="" class="h-10 w-auto mx-4 opacity-80 inline-block"><span class="text-white font-bold uppercase tracking-widest text-xl px-8">AUTOMOBILES</span><img src="{{ '/assets/images/ghost.png' | url }}" alt="" class="h-10 w-auto mx-4 opacity-80 inline-block">{% endfor %}
+    </div>
+  </div>
+
   <!-- About / Value Prop Section -->
   <section class="bg-gray-800 text-white">
-    <div class="md:grid md:grid-cols-2" style="min-height: 80vh;">
+    <div class="max-w-[1300px] mx-auto md:grid md:grid-cols-2" style="min-height: 80vh;">
 
-      <!-- Left: Full-bleed image -->
-      <div class="p-8 flex" style="min-height: 50vh;">
-        <img class="w-full object-cover object-bottom rounded-lg" src="{{ '/assets/images/matties.png' | url }}" alt="Haunted ATX ghost tour vehicle">
-      </div>
-
-      <!-- Right: Headline text + CTA -->
+      <!-- Left: Headline text + CTA -->
       <div class="flex items-center px-10 py-16 bg-gray-800 lg:px-16">
         <div>
           <h2 class="text-white font-black" style="font-size: clamp(2.75rem, 7vw, 6rem); line-height: 0.9; letter-spacing: -0.02em;">
@@ -85,13 +87,18 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
         </div>
       </div>
 
+      <!-- Right: Full image -->
+      <div class="p-8 md:p-0 flex items-center">
+        <img class="w-full h-auto rounded-lg" src="{{ '/assets/images/black-back.png' | url }}" alt="Haunted ATX ghost tour vehicle">
+      </div>
+
     </div>
   </section>
 
   <!-- Tours Preview Section -->
   <section class="bg-gray-900 text-white py-16 px-4">
     <div class="max-w-screen-xl mx-auto">
-      <h2 class="mb-3 text-4xl font-extrabold tracking-tight text-center">Choose Your Tour</h2>
+      <h2 class="mb-3 font-extrabold tracking-tight text-center" style="font-size: clamp(2.5rem, 8vw, 6.25rem);">Choose Your Tour</h2>
       <p class="mb-12 text-gray-400 text-center max-w-2xl mx-auto">No prior ghost-hunting experience required — just a sense of adventure.</p>
       <div class="grid gap-8 sm:grid-cols-3">
 
