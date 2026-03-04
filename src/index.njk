@@ -31,7 +31,7 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
         src="https://www.youtube.com/embed/a_Mz8EJxykQ?autoplay=1&mute=1&loop=1&playlist=a_Mz8EJxykQ&controls=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&playsinline=1"
         frameborder="0"
         allow="autoplay; encrypted-media"
-        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 177.78vh; height: 56.25vw; min-width: 100%; min-height: 100%; mix-blend-mode: screen; opacity: 0.85;"
+        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1.15); width: 177.78vh; height: 56.25vw; min-width: 100%; min-height: 100%; mix-blend-mode: screen; opacity: 0.85;"
         title=""></iframe>
     </div>
 
@@ -62,12 +62,12 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
             src="{{ '/assets/images/fleet.png' | url }}"
             alt="Haunted ATX ghost tour vehicles"
             loading="lazy"
-            class="hidden md:block w-full">
+            class="hidden md:block w-full animate-fleet-up">
           <img
             src="{{ '/assets/images/black-profile.png' | url }}"
             alt="Haunted ATX ghost tour vehicle"
             loading="lazy"
-            class="md:hidden w-full">
+            class="md:hidden w-full animate-profile-right">
         </div>
 
       </div>
@@ -83,17 +83,24 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
   </div>
 
   <!-- About / Value Prop Section -->
-  <section class="bg-gray-800 text-white">
+  <section class="relative overflow-hidden bg-gray-800 text-white">
+    <!-- Cobweb corner decoration -->
+    <img
+      src="{{ '/assets/images/web1.png' | url }}"
+      alt=""
+      aria-hidden="true"
+      class="absolute top-0 left-0 w-auto pointer-events-none select-none"
+      style="height: 320px;">
     <div class="max-w-[1300px] mx-auto md:grid md:grid-cols-2" style="min-height: 80vh;">
 
       <!-- Left: Headline text + CTA -->
       <div class="flex items-center px-5 py-16 md:px-10 bg-gray-800 lg:px-16">
         <div>
-          <h2 class="text-white font-black" style="font-size: clamp(3.5rem, 7vw, 6rem); line-height: 1.0; letter-spacing: -0.02em;">
+          <h2 data-animate="fade-up" class="text-white font-black" style="font-size: clamp(3.5rem, 7vw, 6rem); line-height: 1.0; letter-spacing: -0.02em;">
             Keep<br>Austin<br>Haunted
           </h2>
-          <p class="mt-8 text-gray-400 md:text-lg max-w-sm">Austin's dark history is waiting. Join us for a ghost tour unlike any other — on wheels, after dark, through the city's most haunted streets.</p>
-          <a href="{{ client.bookingUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center mt-6 px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 rounded-lg focus:ring-4 focus:ring-purple-900 transition-colors">
+          <p data-animate="fade-up" style="transition-delay: 0.15s" class="mt-8 text-gray-400 md:text-lg max-w-sm">Austin's dark history is waiting. Join us for a ghost tour unlike any other — on wheels, after dark, through the city's most haunted streets.</p>
+          <a data-animate="fade-up" style="transition-delay: 0.3s" href="{{ client.bookingUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center mt-6 px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 rounded-lg focus:ring-4 focus:ring-purple-900 transition-colors">
             Book Your Tour
             <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -104,7 +111,7 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
 
       <!-- Right: Full image -->
       <div class="p-8 flex items-center">
-        <img class="w-full h-auto rounded-lg" src="{{ '/assets/images/alley-cropped.jpg' | url }}" alt="Haunted ATX ghost tour vehicle">
+        <img data-animate="fade-right" class="w-full h-auto rounded-lg" src="{{ '/assets/images/alley-cropped.jpg' | url }}" alt="Haunted ATX ghost tour vehicle">
       </div>
 
     </div>
@@ -113,12 +120,12 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
   <!-- Tours Preview Section -->
   <section class="bg-gray-900 text-white py-16 px-4">
     <div class="max-w-screen-xl mx-auto">
-      <h2 class="mb-3 font-extrabold tracking-tight text-center" style="font-size: clamp(2.5rem, 8vw, 6.25rem);">Choose Your Tour</h2>
-      <p class="mb-12 text-gray-400 text-center md:text-lg  max-w-2xl mx-auto">No prior ghost-hunting experience required — just a sense of adventure.</p>
+      <h2 data-animate="fade-up" class="mb-3 font-extrabold tracking-tight text-center" style="font-size: clamp(2.5rem, 8vw, 6.25rem);">Choose Your Tour</h2>
+      <p data-animate="fade-up" style="transition-delay: 0.15s" class="mb-12 text-gray-400 text-center md:text-lg  max-w-2xl mx-auto">No prior ghost-hunting experience required — just a sense of adventure.</p>
       <div class="grid gap-8 sm:grid-cols-3">
 
         <!-- Van Tour — 1st -->
-        <a href="{{ '/tours/public-van-tour/' | url }}" class="group flex flex-col items-center text-center p-6 transition-colors">
+        <a data-animate="fade-up" href="{{ '/tours/public-van-tour/' | url }}" class="group flex flex-col items-center text-center p-6 transition-colors">
           <img
             src="{{ '/assets/images/van-skeleton-cropped.jpg' | url }}"
             alt="Public Van Tour"
@@ -132,7 +139,7 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
         </a>
 
         <!-- Paranormal — 2nd -->
-        <a href="{{ '/tours/paranormal-investigation/' | url }}" class="group flex flex-col items-center text-center p-6 transition-colors">
+        <a data-animate="fade-up" style="transition-delay: 0.15s" href="{{ '/tours/paranormal-investigation/' | url }}" class="group flex flex-col items-center text-center p-6 transition-colors">
           <img
             src="{{ '/assets/images/para2.jpg' | url }}"
             alt="Paranormal Investigation Experience"
@@ -146,7 +153,7 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
         </a>
 
         <!-- Hearse Tour — 3rd -->
-        <a href="{{ '/tours/private-hearse-tour/' | url }}" class="group flex flex-col items-center text-center p-6 transition-colors">
+        <a data-animate="fade-up" style="transition-delay: 0.3s" href="{{ '/tours/private-hearse-tour/' | url }}" class="group flex flex-col items-center text-center p-6 transition-colors">
           <img
             src="{{ '/assets/images/maddy-loretta-white.jpg' | url }}"
             alt="Public Hearse Limo Tour"
@@ -306,6 +313,7 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
   <section class="relative bg-gray-800 text-white py-12 px-4">
     <!-- Skull decoration: peeks in from left, ~50% off-screen, taller than section -->
     <img
+      id="skull-decoration"
       src="{{ '/assets/images/skull-large.png' | url }}"
       alt=""
       aria-hidden="true"
@@ -313,8 +321,8 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
       style="top: 50%; left: 4rem; transform: translateX(-50%) translateY(-50%); height: 680px;">
     <div class="max-w-screen-xl mx-auto">
       <div class="text-center mb-10">
-        <h2 class="mb-3 font-extrabold tracking-tight text-center" style="font-size: clamp(2.5rem, 8vw, 6.25rem);">Make Contact</h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">Have a question about our tours? We'd love to hear from you.</p>
+        <h2 data-animate="fade-up" class="mb-3 font-extrabold tracking-tight text-center" style="font-size: clamp(2.5rem, 8vw, 6.25rem);">Make Contact</h2>
+        <p data-animate="fade-up" style="transition-delay: 0.15s" class="text-gray-400 max-w-2xl mx-auto">Have a question about our tours? We'd love to hear from you.</p>
       </div>
       <div class="max-w-2xl mx-auto">
         <iframe src="https://v2.reservationgenie.com/haunted-atx/contact_form" width="100%" height="610" frameborder="0" style="border: none;" title="Contact Form"></iframe>

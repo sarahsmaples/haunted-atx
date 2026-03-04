@@ -37,6 +37,40 @@ if (toursToggle && toursMobile) {
   });
 }
 
+// Scroll-triggered fade-in
+const scrollEls = document.querySelectorAll('[data-animate]');
+if (scrollEls.length) {
+  const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        scrollObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  scrollEls.forEach(el => scrollObserver.observe(el));
+}
+
+// Skull: start off-screen left, slide in on scroll, then float
+const skull = document.getElementById('skull-decoration');
+if (skull) {
+  skull.style.transform = 'translateX(calc(-50% - 700px)) translateY(-50%)';
+  const skullObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        skull.classList.add('skull-sliding');
+        skull.addEventListener('animationend', () => {
+          skull.style.transform = 'translateX(-50%) translateY(-50%)';
+          skull.classList.remove('skull-sliding');
+          skull.classList.add('skull-floating');
+        }, { once: true });
+        skullObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.1 });
+  skullObserver.observe(skull);
+}
+
 // Desktop: hover with 150ms close delay so the gap between button and menu
 // doesn't cause the dropdown to flicker closed mid-cursor-move
 if (toursMenuItem && toursDropdown && window.matchMedia("(min-width: 768px)").matches) {
