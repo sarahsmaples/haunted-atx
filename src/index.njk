@@ -78,7 +78,7 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
   <!-- Marquee Banner -->
   <div class="bg-purple-900 overflow-hidden py-4" aria-hidden="true">
     <div class="marquee-track items-center">
-      {% for i in range(0, 8) %}<span class="text-white font-bold uppercase tracking-widest text-xl px-8">THRILLS</span><img src="{{ '/assets/images/ghost.png' | url }}" alt="" class="h-10 w-auto mx-4 opacity-80 inline-block"><span class="text-white font-bold uppercase tracking-widest text-xl px-8">CHILLS</span><img src="{{ '/assets/images/ghost.png' | url }}" alt="" class="h-10 w-auto mx-4 opacity-80 inline-block"><span class="text-white font-bold uppercase tracking-widest text-xl px-8">AUTOMOBILES</span><img src="{{ '/assets/images/ghost.png' | url }}" alt="" class="h-10 w-auto mx-4 opacity-80 inline-block">{% endfor %}
+      {% for i in range(0, 8) %}<img src="{{ '/assets/images/ghost.png' | url }}" alt="" class="h-10 w-auto mx-4 opacity-80 inline-block"><span class="text-white font-bold uppercase tracking-widest text-xl px-8">Bring your own booze. We'll bring the boos.</span>{% endfor %}
     </div>
   </div>
 
@@ -171,142 +171,54 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
   </section>
 
   <!-- Reviews Section -->
-  <section class="bg-purple-600 overflow-hidden py-12">
+  <section class="bg-purple-600 py-16 px-4">
+    <div class="max-w-screen-xl mx-auto">
 
-    <!-- Row 1: slides left -->
-    <div class="overflow-hidden mb-4">
-      <div class="reviews-track-left">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-        <!-- Set 1 -->
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-4xl leading-relaxed flex-1">"We had a blast on the van tour led by Caden! A certain spirit said hello to us!"</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Lauren</a>
-        </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-5xl leading-relaxed flex-1">"Loretta was incredible! Well worth the cost!"</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Lisa</a>
-        </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-4xl leading-relaxed flex-1">"We had a great time last night with Caden! We have to do the limo tour next time!"</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Matt</a>
-        </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-4xl leading-relaxed flex-1">"One of the best haunted tours we have been on and we have done a lot."</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Joy</a>
-        </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-3xl leading-relaxed flex-1">"Riding around Austin at night in a hearse did not disappoint and our guide Kadean killed it!"</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— James</a>
-        </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-4xl leading-relaxed flex-1">"Amber was AWESOME. Best ghost tour we've ever been on. Highly recommend."</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— MT DAWG</a>
-        </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-3xl leading-relaxed flex-1">"Marisol was amazing and very in tune with the spirits! We did the Public hearse tour, it was awesome to ride around in the old vehicle."</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Adam</a>
-        </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-4xl leading-relaxed flex-1">"This was so much fun and I even had a few ghostly interactions to my surprise! Do this!!!"</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Daphne</a>
+        <article data-animate="fade-up" class="rounded-2xl p-8 flex flex-col items-center text-center">
+          <div class="flex justify-center gap-1 mb-4">
+            {% for i in range(5) %}<svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>{% endfor %}
+          </div>
+          <p class="text-white text-xl md:text-4xl leading-relaxed flex-1 uppercase">"One of the best haunted tours we have been on and we have done a lot."</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 font-semibold hover:text-white transition-colors">— Joy</a>
         </article>
 
-        <!-- Set 2 (duplicate for seamless loop) -->
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-4xl leading-relaxed flex-1">"We had a blast on the van tour led by Caden! A certain spirit said hello to us!"</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Lauren</a>
+        <article data-animate="fade-up" style="transition-delay: 0.1s" class="rounded-2xl p-8 flex flex-col items-center text-center">
+          <div class="flex justify-center gap-1 mb-4">
+            {% for i in range(5) %}<svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>{% endfor %}
+          </div>
+          <p class="text-white text-xl md:text-4xl leading-relaxed flex-1 uppercase">"This was the coolest experience! Drove around downtown Austin in a HEARSE!! Would 1000% recommend!"</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 font-semibold hover:text-white transition-colors">— Kylee</a>
         </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-5xl leading-relaxed flex-1">"Loretta was incredible! Well worth the cost!"</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Lisa</a>
+
+        <article data-animate="fade-up" style="transition-delay: 0.2s" class="rounded-2xl p-8 flex flex-col items-center text-center">
+          <div class="flex justify-center gap-1 mb-4">
+            {% for i in range(5) %}<svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>{% endfor %}
+          </div>
+          <p class="text-white text-xl md:text-4xl leading-relaxed flex-1 uppercase">"This was so much fun and I even had a few ghostly interactions to my surprise! Do this!!!"</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 font-semibold hover:text-white transition-colors">— Daphne</a>
         </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-4xl leading-relaxed flex-1">"We had a great time last night with Caden! We have to do the limo tour next time!"</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Matt</a>
-        </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-4xl leading-relaxed flex-1">"One of the best haunted tours we have been on and we have done a lot."</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Joy</a>
-        </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-3xl leading-relaxed flex-1">"Riding around Austin at night in a hearse did not disappoint and our guide Kadean killed it!"</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— James</a>
-        </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-4xl leading-relaxed flex-1">"Amber was AWESOME. Best ghost tour we've ever been on. Highly recommend."</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— MT DAWG</a>
-        </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-3xl leading-relaxed flex-1">"Marisol was amazing and very in tune with the spirits! We did the Public hearse tour, it was awesome to ride around in the old vehicle."</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Adam</a>
-        </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-4xl leading-relaxed flex-1">"This was so much fun and I even had a few ghostly interactions to my surprise! Do this!!!"</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Daphne</a>
+
+        <article data-animate="fade-up" style="transition-delay: 0.3s" class="rounded-2xl p-8 flex flex-col items-center text-center">
+          <div class="flex justify-center gap-1 mb-4">
+            {% for i in range(5) %}<svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>{% endfor %}
+          </div>
+          <p class="text-white text-xl md:text-4xl leading-relaxed flex-1 uppercase">"Best ghost tour we've ever been on. Highly recommend."</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 font-semibold hover:text-white transition-colors">— MT DAWG</a>
         </article>
 
       </div>
-    </div>
 
-    <!-- Row 2: slides right -->
-    <div class="overflow-hidden">
-      <div class="reviews-track-right">
-
-        <!-- Set 1 -->
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-3xl leading-relaxed flex-1">"This was the coolest experience! Kadean drove us around downtown Austin in a HEARSE!! Would 1000% recommend! I am definitely going to be doing this tour again."</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Kylee</a>
-        </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-4xl leading-relaxed flex-1">"Caden was the absolute best!! We had an amazing experience and definitely want to do it again."</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Torrey</a>
-        </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-3xl leading-relaxed flex-1">"Marisol gave a great tour! I can't praise their abilities to create a wonderful experience enough!"</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Zachary</a>
-        </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-5xl leading-relaxed flex-1">"We went for a bachelorette party and it did not disappoint!"</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Caitlin</a>
-        </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-5xl leading-relaxed flex-1">"Great fun, we REALLY enjoyed it!"</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Andrew</a>
-        </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-4xl leading-relaxed flex-1">"Even if you're not into ghosts, getting to ride around in a vintage hearse makes it worth while!"</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Daphne</a>
-        </article>
-
-        <!-- Set 2 (duplicate for seamless loop) -->
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-3xl leading-relaxed flex-1">"This was the coolest experience! Kadean drove us around downtown Austin in a HEARSE!! Would 1000% recommend! I am definitely going to be doing this tour again."</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Kylee</a>
-        </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-4xl leading-relaxed flex-1">"Caden was the absolute best!! We had an amazing experience and definitely want to do it again."</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Torrey</a>
-        </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-3xl leading-relaxed flex-1">"Marisol gave a great tour! I can't praise their abilities to create a wonderful experience enough!"</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Zachary</a>
-        </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-5xl leading-relaxed flex-1">"We went for a bachelorette party and it did not disappoint!"</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Caitlin</a>
-        </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-5xl leading-relaxed flex-1">"Great fun, we REALLY enjoyed it!"</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Andrew</a>
-        </article>
-        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
-          <p class="text-white text-4xl leading-relaxed flex-1">"Even if you're not into ghosts, getting to ride around in a vintage hearse makes it worth while!"</p>
-          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Daphne</a>
-        </article>
-
+      <div class="text-center mt-10">
+        <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-purple-100 hover:text-white font-semibold transition-colors">
+          Read all reviews on Google
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        </a>
       </div>
-    </div>
 
+    </div>
   </section>
 
   <!-- Contact Section -->
