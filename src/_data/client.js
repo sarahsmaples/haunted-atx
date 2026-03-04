@@ -22,6 +22,8 @@ module.exports = {
   bookingUrl: "https://v2.reservationgenie.com/haunted-atx/reservations/calendar",
   // Google Maps URL for meeting point
   mapUrl: "https://maps.app.goo.gl/tcG2xYY4LWsMW4dR9",
+  // Google Business Profile — used for review attribution links
+  googleBusinessUrl: "https://www.google.com/maps/place/Haunted+ATX+Austin+Ghost+Tours/@30.2392065,-97.7561925,17z/data=!3m1!4b1!4m6!3m5!1s0x8644ca5ece50f5c1:0xc92edaa049335ebb!8m2!3d30.2392065!4d-97.7536176!16s%2Fg%2F1tcz_xrh?entry=ttu&g_ep=EgoyMDI2MDMwMS4xIKXMDSoASAFQAw%3D%3D",
 
   // ─── Tour Hours ───────────────────────────────────────────────────────────
   // Format follows schema.org/OpeningHoursSpecification
@@ -58,5 +60,5 @@ module.exports = {
 
   // ─── Analytics ───────────────────────────────────────────────────────────
   // Google Analytics 4 Measurement ID — leave empty string to disable
-  gtag: "",
+  gtag: "G-KSF9QHEQBW",
 };

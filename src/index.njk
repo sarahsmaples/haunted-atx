@@ -25,25 +25,39 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
     <!-- Dark overlay for text readability -->
     <div class="absolute inset-0 bg-black/60" aria-hidden="true"></div>
 
+    <!-- Lightning video overlay (mix-blend-mode: screen makes black transparent, lightning glows) -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      <iframe
+        src="https://www.youtube.com/embed/a_Mz8EJxykQ?autoplay=1&mute=1&loop=1&playlist=a_Mz8EJxykQ&controls=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&playsinline=1"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 177.78vh; height: 56.25vw; min-width: 100%; min-height: 100%; mix-blend-mode: screen; opacity: 0.85;"
+        title=""></iframe>
+    </div>
+
     <!-- Content -->
     <div class="relative z-10 flex items-end" style="min-height: 100vh;">
-      <div class="max-w-screen-xl px-4 pt-40 pb-10 md:pb-14 mx-auto text-center text-white w-full">
-        <h1 class="max-w-4xl mx-auto mb-6 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl">Dare to Discover Austin's Dark Side</h1>
-        <p class="max-w-2xl mx-auto mb-8 font-light text-gray-300 md:text-lg lg:text-xl">Austin's Only Ghost Tour on Wheels — Prices starting at $49 per person.</p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="{{ client.bookingUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white rounded-lg bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 transition-colors">
-            Book a Tour
-            <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-            </svg>
-          </a>
-          <a href="{{ '/tours/' | url }}" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-gray-200 border border-gray-400 rounded-lg hover:bg-white/10 focus:ring-4 focus:ring-gray-700 transition-colors">
-            See Our Tours
-          </a>
+      <div class="w-full text-center text-white">
+
+        <!-- Text + CTAs: constrained width -->
+        <div class="max-w-screen-xl px-4 pt-40 pb-8 mx-auto">
+          <h1 class="max-w-5xl mx-auto mb-6 font-extrabold tracking-tight leading-none" style="font-size: clamp(2.75rem, 6vw, 5.5rem);">Dare to Discover Austin's Dark Side</h1>
+          <p class="max-w-2xl mx-auto mb-8 font-light text-gray-300 md:text-lg lg:text-xl">Austin's Only Ghost Tour on Wheels<br class="md:hidden"> Prices starting at $49 per person.</p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="{{ client.bookingUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white rounded-lg bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 transition-colors">
+              Book a Tour
+              <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+            </a>
+            <a href="{{ '/tours/' | url }}" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-gray-200 border border-gray-400 rounded-lg hover:bg-white/10 focus:ring-4 focus:ring-gray-700 transition-colors">
+              See Our Tours
+            </a>
+          </div>
         </div>
 
-        <!-- Fleet image: desktop shows fleet.png, mobile shows black-profile.png -->
-        <div class="mt-16 md:mt-28 w-[95%] mx-auto">
+        <!-- Fleet image: full viewport width -->
+        <div class="mt-10 md:mt-20 px-2 w-full">
           <img
             src="{{ '/assets/images/fleet.png' | url }}"
             alt="Haunted ATX ghost tour vehicles"
@@ -55,6 +69,7 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
             loading="lazy"
             class="md:hidden w-full">
         </div>
+
       </div>
     </div>
 
@@ -72,10 +87,10 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
     <div class="max-w-[1300px] mx-auto md:grid md:grid-cols-2" style="min-height: 80vh;">
 
       <!-- Left: Headline text + CTA -->
-      <div class="flex items-center px-10 py-16 bg-gray-800 lg:px-16">
+      <div class="flex items-center px-5 py-16 md:px-10 bg-gray-800 lg:px-16">
         <div>
-          <h2 class="text-white font-black" style="font-size: clamp(2.75rem, 7vw, 6rem); line-height: 0.9; letter-spacing: -0.02em;">
-            KEEP<br>AUSTIN<br>HAUNTED
+          <h2 class="text-white font-black" style="font-size: clamp(3.5rem, 7vw, 6rem); line-height: 1.0; letter-spacing: -0.02em;">
+            Keep<br>Austin<br>Haunted
           </h2>
           <p class="mt-8 text-gray-400 md:text-lg max-w-sm">Austin's dark history is waiting. Join us for a ghost tour unlike any other — on wheels, after dark, through the city's most haunted streets.</p>
           <a href="{{ client.bookingUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center mt-6 px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 rounded-lg focus:ring-4 focus:ring-purple-900 transition-colors">
@@ -89,7 +104,7 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
 
       <!-- Right: Full image -->
       <div class="p-8 flex items-center">
-        <img class="w-full h-auto rounded-lg" src="{{ '/assets/images/black-back.png' | url }}" alt="Haunted ATX ghost tour vehicle">
+        <img class="w-full h-auto rounded-lg" src="{{ '/assets/images/alley-cropped.jpg' | url }}" alt="Haunted ATX ghost tour vehicle">
       </div>
 
     </div>
@@ -99,7 +114,7 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
   <section class="bg-gray-900 text-white py-16 px-4">
     <div class="max-w-screen-xl mx-auto">
       <h2 class="mb-3 font-extrabold tracking-tight text-center" style="font-size: clamp(2.5rem, 8vw, 6.25rem);">Choose Your Tour</h2>
-      <p class="mb-12 text-gray-400 text-center max-w-2xl mx-auto">No prior ghost-hunting experience required — just a sense of adventure.</p>
+      <p class="mb-12 text-gray-400 text-center md:text-lg  max-w-2xl mx-auto">No prior ghost-hunting experience required — just a sense of adventure.</p>
       <div class="grid gap-8 sm:grid-cols-3">
 
         <!-- Van Tour — 1st -->
@@ -109,10 +124,10 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
             alt="Public Van Tour"
             width="288" height="288"
             loading="lazy"
-            class="w-48 h-48 lg:w-72 lg:h-72 rounded-full object-cover mb-5 transition-opacity group-hover:opacity-90">
+            class="w-full h-auto sm:w-48 sm:h-48 lg:w-72 lg:h-72 rounded-full object-cover mb-5 transition-opacity group-hover:opacity-90">
           <h3 class="font-bold mb-2 flex items-center justify-center min-h-[7rem] w-full" style="font-size: clamp(1.5rem, 3vw, 2.5rem);">Van Tour</h3>
-          <div class="text-purple-400 text-xs md:text-lg font-semibold uppercase tracking-widest mb-1">$49 / person</div>
-          <p class="text-gray-400 text-sm flex-1">More seats, air conditioning, and a custom art wrap — same haunted Austin history.</p>
+          <div class="text-purple-400 md:text-lg font-semibold uppercase tracking-widest mb-1">$49 / person</div>
+          <p class="text-gray-400 md:text-lg text-sm flex-1">More seats, air conditioning, and a custom art wrap — same haunted Austin history.</p>
           <span class="mt-4 text-purple-400 group-hover:text-purple-300 text-sm font-medium transition-colors">Learn more &rarr;</span>
         </a>
 
@@ -123,7 +138,7 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
             alt="Paranormal Investigation Experience"
             width="288" height="288"
             loading="lazy"
-            class="w-48 h-48 lg:w-72 lg:h-72 rounded-full object-cover mb-5 transition-opacity group-hover:opacity-90">
+            class="w-full h-auto sm:w-48 sm:h-48 lg:w-72 lg:h-72 rounded-full object-cover mb-5 transition-opacity group-hover:opacity-90">
           <h3 class="font-bold mb-2 flex items-center justify-center min-h-[7rem] w-full" style="font-size: clamp(1.2rem, 2.5vw, 2.125rem);">Paranormal Investigation</h3>
           <div class="text-purple-400 text-xs md:text-lg font-semibold uppercase tracking-widest mb-1">$59 / person</div>
           <p class="text-gray-400 text-sm flex-1">Go hands-on with the spirits at The Clay Pit's historic Bertram Building every Saturday night.</p>
@@ -137,7 +152,7 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
             alt="Public Hearse Limo Tour"
             width="288" height="288"
             loading="lazy"
-            class="w-48 h-48 lg:w-72 lg:h-72 rounded-full object-cover mb-5 transition-opacity group-hover:opacity-90">
+            class="w-full h-auto sm:w-48 sm:h-48 lg:w-72 lg:h-72 rounded-full object-cover mb-5 transition-opacity group-hover:opacity-90">
           <h3 class="font-bold mb-2 flex items-center justify-center min-h-[7rem] w-full" style="font-size: clamp(1.5rem, 3vw, 2.5rem);">Hearse Tour</h3>
           <div class="text-purple-400 text-xs md:text-lg font-semibold uppercase tracking-widest mb-1">from $99 / person</div>
           <p class="text-gray-400 text-sm flex-1">Climb into a classic Cadillac hearse converted into a spooky limousine and explore Austin after dark.</p>
@@ -148,12 +163,158 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
     </div>
   </section>
 
+  <!-- Reviews Section -->
+  <section class="bg-purple-600 overflow-hidden py-12">
+
+    <!-- Row 1: slides left -->
+    <div class="overflow-hidden mb-4">
+      <div class="reviews-track-left">
+
+        <!-- Set 1 -->
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-4xl leading-relaxed flex-1">"We had a blast on the van tour led by Caden! A certain spirit said hello to us!"</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Lauren</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-5xl leading-relaxed flex-1">"Loretta was incredible! Well worth the cost!"</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Lisa</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-4xl leading-relaxed flex-1">"We had a great time last night with Caden! We have to do the limo tour next time!"</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Matt</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-4xl leading-relaxed flex-1">"One of the best haunted tours we have been on and we have done a lot."</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Joy</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-3xl leading-relaxed flex-1">"Riding around Austin at night in a hearse did not disappoint and our guide Kadean killed it!"</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— James</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-4xl leading-relaxed flex-1">"Amber was AWESOME. Best ghost tour we've ever been on. Highly recommend."</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— MT DAWG</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-3xl leading-relaxed flex-1">"Marisol was amazing and very in tune with the spirits! We did the Public hearse tour, it was awesome to ride around in the old vehicle."</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Adam</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-4xl leading-relaxed flex-1">"This was so much fun and I even had a few ghostly interactions to my surprise! Do this!!!"</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Daphne</a>
+        </article>
+
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-4xl leading-relaxed flex-1">"We had a blast on the van tour led by Caden! A certain spirit said hello to us!"</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Lauren</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-5xl leading-relaxed flex-1">"Loretta was incredible! Well worth the cost!"</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Lisa</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-4xl leading-relaxed flex-1">"We had a great time last night with Caden! We have to do the limo tour next time!"</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Matt</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-4xl leading-relaxed flex-1">"One of the best haunted tours we have been on and we have done a lot."</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Joy</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-3xl leading-relaxed flex-1">"Riding around Austin at night in a hearse did not disappoint and our guide Kadean killed it!"</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— James</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-4xl leading-relaxed flex-1">"Amber was AWESOME. Best ghost tour we've ever been on. Highly recommend."</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— MT DAWG</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-3xl leading-relaxed flex-1">"Marisol was amazing and very in tune with the spirits! We did the Public hearse tour, it was awesome to ride around in the old vehicle."</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Adam</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-4xl leading-relaxed flex-1">"This was so much fun and I even had a few ghostly interactions to my surprise! Do this!!!"</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Daphne</a>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- Row 2: slides right -->
+    <div class="overflow-hidden">
+      <div class="reviews-track-right">
+
+        <!-- Set 1 -->
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-3xl leading-relaxed flex-1">"This was the coolest experience! Kadean drove us around downtown Austin in a HEARSE!! Would 1000% recommend! I am definitely going to be doing this tour again."</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Kylee</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-4xl leading-relaxed flex-1">"Caden was the absolute best!! We had an amazing experience and definitely want to do it again."</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Torrey</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-3xl leading-relaxed flex-1">"Marisol gave a great tour! I can't praise their abilities to create a wonderful experience enough!"</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Zachary</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-5xl leading-relaxed flex-1">"We went for a bachelorette party and it did not disappoint!"</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Caitlin</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-5xl leading-relaxed flex-1">"Great fun, we REALLY enjoyed it!"</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Andrew</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-4xl leading-relaxed flex-1">"Even if you're not into ghosts, getting to ride around in a vintage hearse makes it worth while!"</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Daphne</a>
+        </article>
+
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-3xl leading-relaxed flex-1">"This was the coolest experience! Kadean drove us around downtown Austin in a HEARSE!! Would 1000% recommend! I am definitely going to be doing this tour again."</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Kylee</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-4xl leading-relaxed flex-1">"Caden was the absolute best!! We had an amazing experience and definitely want to do it again."</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Torrey</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-3xl leading-relaxed flex-1">"Marisol gave a great tour! I can't praise their abilities to create a wonderful experience enough!"</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Zachary</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-5xl leading-relaxed flex-1">"We went for a bachelorette party and it did not disappoint!"</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Caitlin</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-5xl leading-relaxed flex-1">"Great fun, we REALLY enjoyed it!"</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Andrew</a>
+        </article>
+        <article class="w-[82vw] md:w-[44vw] lg:w-[34vw] shrink-0 px-10 py-10 flex flex-col">
+          <p class="text-white text-4xl leading-relaxed flex-1">"Even if you're not into ghosts, getting to ride around in a vintage hearse makes it worth while!"</p>
+          <a href="{{ client.googleBusinessUrl }}" target="_blank" rel="noopener noreferrer" class="mt-6 text-purple-200 text-lg font-medium hover:text-white transition-colors">— Daphne</a>
+        </article>
+
+      </div>
+    </div>
+
+  </section>
+
   <!-- Contact Section -->
-  <section class="bg-gray-800 text-white py-12 px-4">
+  <section class="relative bg-gray-800 text-white py-12 px-4">
+    <!-- Skull decoration: peeks in from left, ~50% off-screen, taller than section -->
+    <img
+      src="{{ '/assets/images/skull-large.png' | url }}"
+      alt=""
+      aria-hidden="true"
+      class="hidden md:block absolute w-auto pointer-events-none select-none"
+      style="top: 50%; left: 4rem; transform: translateX(-50%) translateY(-50%); height: 680px;">
     <div class="max-w-screen-xl mx-auto">
-      <div class="max-w-2xl mx-auto text-center mb-10">
-        <h2 class="text-3xl font-extrabold tracking-tight mb-3">Make Contact</h2>
-        <p class="text-gray-400">Have a question about our tours? We'd love to hear from you.</p>
+      <div class="text-center mb-10">
+        <h2 class="mb-3 font-extrabold tracking-tight text-center" style="font-size: clamp(2.5rem, 8vw, 6.25rem);">Make Contact</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Have a question about our tours? We'd love to hear from you.</p>
       </div>
       <div class="max-w-2xl mx-auto">
         <iframe src="https://v2.reservationgenie.com/haunted-atx/contact_form" width="100%" height="610" frameborder="0" style="border: none;" title="Contact Form"></iframe>

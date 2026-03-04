@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  html, body {
+    background-color: rgb(17 24 39); /* gray-900 — prevents white flash through transparent nav */
+  }
+
   body {
     font-family: "Source Serif 4", serif;
     font-optical-sizing: auto;
@@ -99,4 +103,38 @@
 
 .marquee-track:hover {
   animation-play-state: paused;
+}
+
+/* ── Reviews marquee ─────────────────────────────────────────────────────── */
+@keyframes reviews-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes reviews-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.reviews-track-left {
+  display: flex;
+  width: max-content;
+  animation: reviews-left 90s linear infinite;
+}
+
+.reviews-track-right {
+  display: flex;
+  width: max-content;
+  animation: reviews-right 105s linear infinite;
+}
+
+.reviews-track-left:hover,
+.reviews-track-right:hover {
+  animation-play-state: paused;
+}
+
+.reviews-track-left p,
+.reviews-track-right p {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
 }
