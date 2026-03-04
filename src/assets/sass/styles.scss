@@ -89,6 +89,63 @@
   line-height: 1.25rem;
 }
 
+/* ── Nav open/close transitions ─────────────────────────────────────────── */
+
+/* Mobile nav: collapsed by default, unfurls on open */
+@media (max-width: 988px) {
+  #navbar-main {
+    display: block !important;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.25s ease;
+  }
+  #navbar-main.nav-open {
+    max-height: 600px;
+    opacity: 1;
+  }
+}
+
+/* Mobile tours sub-menu */
+#tours-mobile {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+#tours-mobile.sub-open {
+  max-height: 200px;
+}
+
+/* Desktop tours dropdown: fades + slides down */
+@media (max-width: 988px) {
+  #tours-dropdown { display: none !important; }
+}
+
+#tours-dropdown {
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
+}
+#tours-dropdown.dropdown-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0s;
+}
+
+/* ── Nav: compact link size between 989px–1090px ────────────────────────── */
+@media (min-width: 989px) and (max-width: 1090px) {
+  #navbar-main a,
+  #navbar-main button,
+  #buy-tickets-btn {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
 /* ── Marquee banner ─────────────────────────────────────────────────────── */
 @keyframes marquee {
   from { transform: translateX(0); }
@@ -141,21 +198,30 @@
 
 /* ── Hero load animations ────────────────────────────────────────────────── */
 @keyframes fleet-slide-up {
-  from { opacity: 0; transform: translateY(80px); }
-  to   { opacity: 1; transform: translateY(0); }
+  0%   { opacity: 0; transform: translateY(140px); }
+  42%  { opacity: 1; transform: translateY(-55px); }
+  58%  { transform: translateY(24px); }
+  70%  { transform: translateY(-14px); }
+  80%  { transform: translateY(7px); }
+  89%  { transform: translateY(-4px); }
+  95%  { transform: translateY(2px); }
+  100% { transform: translateY(0); }
 }
 
 @keyframes profile-slide-right {
-  from { opacity: 0; transform: translateX(100px); }
-  to   { opacity: 1; transform: translateX(0); }
+  0%   { opacity: 0; transform: translateX(160px); }
+  50%  { opacity: 1; transform: translateX(-40px); }
+  70%  { transform: translateX(15px); }
+  85%  { transform: translateX(-6px); }
+  100% { transform: translateX(0); }
 }
 
 .animate-fleet-up {
-  animation: fleet-slide-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
+  animation: fleet-slide-up 2.6s ease-out 0.4s both;
 }
 
 .animate-profile-right {
-  animation: profile-slide-right 1s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
+  animation: profile-slide-right 1.8s ease-out 0.4s both;
 }
 
 /* ── Scroll fade-in animations ───────────────────────────────────────────── */

@@ -4,8 +4,8 @@ const mobileMenu = document.getElementById("navbar-main");
 
 if (mobileToggle && mobileMenu) {
   mobileToggle.addEventListener("click", () => {
-    const isOpen = !mobileMenu.classList.contains("hidden");
-    mobileMenu.classList.toggle("hidden", isOpen);
+    const isOpen = mobileMenu.classList.contains("nav-open");
+    mobileMenu.classList.toggle("nav-open");
     mobileToggle.setAttribute("aria-expanded", String(!isOpen));
   });
 }
@@ -28,9 +28,9 @@ const toursMenuItem = document.getElementById("tours-menu-item");
 // Mobile: click to expand inline sub-menu
 if (toursToggle && toursMobile) {
   toursToggle.addEventListener("click", () => {
-    if (window.innerWidth < 768) {
-      const isOpen = !toursMobile.classList.contains("hidden");
-      toursMobile.classList.toggle("hidden", isOpen);
+    if (window.innerWidth < 989) {
+      const isOpen = toursMobile.classList.contains("sub-open");
+      toursMobile.classList.toggle("sub-open");
       toursChevron.style.transform = isOpen ? "" : "rotate(180deg)";
       toursToggle.setAttribute("aria-expanded", String(!isOpen));
     }
@@ -73,27 +73,19 @@ if (skull) {
   skullObserver.observe(skullSection);
 }
 
-// Desktop: hover with 150ms close delay so the gap between button and menu
-// doesn't cause the dropdown to flicker closed mid-cursor-move
-if (toursMenuItem && toursDropdown && window.matchMedia("(min-width: 768px)").matches) {
-  let closeTimer;
+// Desktop: click to toggle dropdown, click outside to close
+if (toursMenuItem && toursDropdown && toursToggle && window.matchMedia("(min-width: 989px)").matches) {
+  toursToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = toursDropdown.classList.contains("dropdown-open");
+    toursDropdown.classList.toggle("dropdown-open");
+    toursToggle.setAttribute("aria-expanded", String(!isOpen));
+  });
 
-  const openDropdown = () => {
-    clearTimeout(closeTimer);
-    toursDropdown.classList.remove("hidden");
-    toursToggle.setAttribute("aria-expanded", "true");
-  };
-
-  const closeDropdown = () => {
-    closeTimer = setTimeout(() => {
-      toursDropdown.classList.add("hidden");
+  document.addEventListener("click", (e) => {
+    if (!toursMenuItem.contains(e.target)) {
+      toursDropdown.classList.remove("dropdown-open");
       toursToggle.setAttribute("aria-expanded", "false");
-    }, 150);
-  };
-
-  toursMenuItem.addEventListener("mouseenter", openDropdown);
-  toursMenuItem.addEventListener("mouseleave", closeDropdown);
-  // Entering the dropdown itself cancels the pending close
-  toursDropdown.addEventListener("mouseenter", () => clearTimeout(closeTimer));
-  toursDropdown.addEventListener("mouseleave", closeDropdown);
+    }
+  });
 }
