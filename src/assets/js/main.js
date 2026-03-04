@@ -55,6 +55,8 @@ if (scrollEls.length) {
 const skull = document.getElementById('skull-decoration');
 if (skull) {
   skull.style.transform = 'translateX(calc(-50% - 700px)) translateY(-50%)';
+  // Observe the parent section (skull is off-screen so can't observe itself)
+  const skullSection = skull.closest('section');
   const skullObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -68,7 +70,7 @@ if (skull) {
       }
     });
   }, { threshold: 0.1 });
-  skullObserver.observe(skull);
+  skullObserver.observe(skullSection);
 }
 
 // Desktop: hover with 150ms close delay so the gap between button and menu
