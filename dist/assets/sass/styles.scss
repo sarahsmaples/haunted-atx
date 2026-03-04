@@ -117,6 +117,10 @@
 }
 
 /* Desktop tours dropdown: fades + slides down */
+@media (max-width: 988px) {
+  #tours-dropdown { display: none !important; }
+}
+
 #tours-dropdown {
   opacity: 0;
   transform: translateY(-6px);
