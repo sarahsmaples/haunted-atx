@@ -265,3 +265,65 @@
 #skull-decoration.skull-floating {
   animation: skull-float 4s ease-in-out infinite;
 }
+
+/* ── Photo lightbox ──────────────────────────────────────────────────────── */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+#lightbox.lb-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#lb-img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+#lb-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.15s ease;
+}
+#lb-close:hover { opacity: 1; }
+
+#lb-prev,
+#lb-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3.5rem;
+  line-height: 1;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.15s ease;
+  padding: 0 1rem;
+}
+#lb-prev { left: 0.5rem; }
+#lb-next { right: 0.5rem; }
+#lb-prev:hover,
+#lb-next:hover { opacity: 1; }

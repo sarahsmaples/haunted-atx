@@ -73,6 +73,61 @@ if (skull) {
   skullObserver.observe(skullSection);
 }
 
+// Photo gallery lightbox
+const galleries = document.querySelectorAll('.photo-gallery');
+if (galleries.length) {
+  const modal = document.createElement('div');
+  modal.id = 'lightbox';
+  modal.innerHTML = `
+    <button id="lb-close" aria-label="Close">&times;</button>
+    <button id="lb-prev" aria-label="Previous">&#8249;</button>
+    <img id="lb-img" src="" alt="">
+    <button id="lb-next" aria-label="Next">&#8250;</button>
+  `;
+  document.body.appendChild(modal);
+
+  const lbImg = document.getElementById('lb-img');
+  let images = [];
+  let current = 0;
+
+  function showImage(index) {
+    current = (index + images.length) % images.length;
+    lbImg.src = images[current].src;
+    lbImg.alt = images[current].alt;
+  }
+
+  function openLightbox(imgs, index) {
+    images = imgs;
+    showImage(index);
+    modal.classList.add('lb-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    modal.classList.remove('lb-open');
+    document.body.style.overflow = '';
+  }
+
+  galleries.forEach(gallery => {
+    const imgs = Array.from(gallery.querySelectorAll('img'));
+    imgs.forEach((img, i) => {
+      img.addEventListener('click', () => openLightbox(imgs, i));
+    });
+  });
+
+  document.getElementById('lb-close').addEventListener('click', closeLightbox);
+  document.getElementById('lb-prev').addEventListener('click', () => showImage(current - 1));
+  document.getElementById('lb-next').addEventListener('click', () => showImage(current + 1));
+  modal.addEventListener('click', e => { if (e.target === modal) closeLightbox(); });
+
+  document.addEventListener('keydown', e => {
+    if (!modal.classList.contains('lb-open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showImage(current - 1);
+    if (e.key === 'ArrowRight') showImage(current + 1);
+  });
+}
+
 // Desktop: click to toggle dropdown, click outside to close
 if (toursMenuItem && toursDropdown && toursToggle && window.matchMedia("(min-width: 989px)").matches) {
   toursToggle.addEventListener("click", (e) => {

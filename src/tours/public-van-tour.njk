@@ -30,14 +30,14 @@ perks:
   Guests get out of the van frequently and go inside some establishments along the route. Walking is minimal, though there are a couple of staircases. Your guide will be in full spooky attire and ready to bring Austin's dark history to life.
 </p>
 <p class="text-gray-400 mb-10 md:text-lg">
-  Sodas and water are waiting on ice. You're welcome to bring your own beverages and spirits — just leave the firearms at home (the ghosts are skittish, and most of our stops don't allow them).
+  Sodas and water are waiting on ice. You're welcome to bring your own beverages and spirits!
 </p>
 
 <!-- Photo strip -->
-<div class="grid grid-cols-3 gap-3 mb-14 rounded-lg overflow-hidden">
-  <img src="{{ '/assets/images/van.jpg' | url }}" alt="Public haunted van exterior" class="w-full h-40 object-cover rounded-lg">
-  <img src="{{ '/assets/images/matties.jpg' | url }}" alt="Tour stop in Austin" class="w-full h-40 object-cover rounded-lg">
-  <img src="{{ '/assets/images/alley.jpg' | url }}" alt="A haunted Austin alley" class="w-full h-40 object-cover rounded-lg">
+<div class="photo-gallery grid grid-cols-3 gap-3 mb-14 rounded-lg overflow-hidden">
+  <img src="{{ '/assets/images/van-at-night.jpg' | url }}" alt="Van tour keys" class="w-full h-40 object-cover rounded-lg cursor-zoom-in">
+  <img src="{{ '/assets/images/mljm.jpg' | url }}" alt="Van tour guides" class="w-full h-40 object-cover rounded-lg cursor-zoom-in">
+  <img src="{{ '/assets/images/van-at-cap.jpg' | url }}" alt="Van at the Capitol" class="w-full h-40 object-cover rounded-lg cursor-zoom-in">
 </div>
 
 <!-- Tour Details -->
@@ -61,7 +61,7 @@ perks:
 
   <div class="border-b border-gray-700 pb-5">
     <dt class="text-purple-400 text-xs font-semibold uppercase tracking-widest mb-1">Maximum Party Size</dt>
-    <dd class="text-gray-300">The van accommodates 11 guests. You may book parties up to 10 online. If you need that extra seat, please <a href="{{ '/contact/' | url }}" class="text-purple-400 hover:text-purple-300 underline">contact us</a> to make arrangements.</dd>
+    <dd class="text-gray-300">The van accommodates 11 guests. You may book parties up to 10 online. If you need that extra seat, please <a href="{{ '/#contact' | url }}" class="text-purple-400 hover:text-purple-300 underline">contact us</a> to make arrangements.</dd>
   </div>
 
   <div class="border-b border-gray-700 pb-5">
@@ -71,7 +71,7 @@ perks:
 
   <div class="border-b border-gray-700 pb-5">
     <dt class="text-purple-400 text-xs font-semibond uppercase tracking-widest mb-1">Meeting Point</dt>
-    <dd class="text-gray-300">All guests meet at <strong class="text-white">Freddo ATX, 2336 S Congress Ave, Austin, TX 78704</strong> at tour time. Please do not be late!</dd>
+    <dd class="text-gray-300">All guests meet at <strong class="text-white">Walter's Tavern, 2336 S Congress Ave, Austin, TX 78704</strong> at tour time. Arrive early if you'd like to order food or drinks before the tour. Please do not be late!</dd>
   </div>
 
   <div class="border-b border-gray-700 pb-5">
@@ -116,8 +116,31 @@ perks:
 
 </dl>
 
+<!-- Explore Other Tours -->
+<div class="mt-16 mb-8">
+  <h3 class="text-2xl font-bold mb-6">Explore Other Tours</h3>
+  <div class="grid sm:grid-cols-2 gap-4">
+    <a href="{{ '/tours/public-hearse-tour/' | url }}" class="group flex items-center gap-4 bg-gray-800 border border-gray-700 rounded-xl p-5 hover:border-purple-500 transition-colors">
+      <img src="{{ '/assets/images/black-hearse.jpg' | url }}" alt="Public Hearse Tour" class="w-20 h-20 object-cover rounded-lg shrink-0">
+      <div>
+        <div class="text-purple-400 text-xs font-semibold uppercase tracking-widest mb-1">Public Tour</div>
+        <div class="font-bold text-lg group-hover:text-purple-300 transition-colors">Hearse Limo Tour</div>
+        <div class="text-gray-400 text-sm mt-1">Ride through haunted Austin in a converted hearse limousine.</div>
+      </div>
+    </a>
+    <a href="{{ '/tours/paranormal-investigation/' | url }}" class="group flex items-center gap-4 bg-gray-800 border border-gray-700 rounded-xl p-5 hover:border-purple-500 transition-colors">
+      <img src="{{ '/assets/images/paranormal1.jpg' | url }}" alt="Paranormal Investigation" class="w-20 h-20 object-cover rounded-lg shrink-0">
+      <div>
+        <div class="text-purple-400 text-xs font-semibold uppercase tracking-widest mb-1">Hands-On Experience</div>
+        <div class="font-bold text-lg group-hover:text-purple-300 transition-colors">Paranormal Investigation</div>
+        <div class="text-gray-400 text-sm mt-1">Go hands-on with the spirits at The Clay Pit's historic Bertram Building.</div>
+      </div>
+    </a>
+  </div>
+</div>
+
 <!-- CTA Banner -->
-<div class="mt-16 bg-gray-800 rounded-xl border border-gray-700 p-8 text-center">
+<div class="mt-8 bg-gray-800 rounded-xl border border-gray-700 p-8 text-center">
   <h3 class="text-2xl font-bold mb-3">Ready to ride?</h3>
   <p class="text-gray-400 mb-6">Check availability and grab your seats before they're gone.</p>
   <a href="{{ client.bookingUrl }}" target="_blank" rel="noopener noreferrer"
