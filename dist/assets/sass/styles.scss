@@ -91,14 +91,19 @@
 
 /* ── Nav open/close transitions ─────────────────────────────────────────── */
 
-/* Mobile nav: collapsed by default, unfurls on open */
+/* Mobile nav: collapsed by default, overlays page when open */
 @media (max-width: 988px) {
   #navbar-main {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
     display: block !important;
     max-height: 0;
     overflow: hidden;
     opacity: 0;
     transition: max-height 0.35s ease, opacity 0.25s ease;
+    z-index: 49;
   }
   #navbar-main.nav-open {
     max-height: 600px;

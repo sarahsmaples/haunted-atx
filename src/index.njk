@@ -89,18 +89,25 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
       src="{{ '/assets/images/web1.png' | url }}"
       alt=""
       aria-hidden="true"
-      class="absolute top-0 right-0 md:right-auto md:left-0 w-auto pointer-events-none select-none scale-x-[-1] md:scale-x-[1]"
+      class="absolute top-0 right-0 md:right-auto md:left-0 w-auto pointer-events-none select-none scale-x-[-1] md:scale-x-[1] z-0"
       style="height: 320px;">
     <div class="max-w-[1300px] mx-auto md:grid md:grid-cols-2" style="min-height: 80vh;">
 
       <!-- Left: Headline text + CTA -->
-      <div class="flex items-center px-5 py-16 md:px-10 bg-gray-800 lg:px-16">
+      <div class="relative z-10 flex items-center px-5 py-16 md:px-10 lg:px-16">
         <div>
           <h2 data-animate="fade-up" class="text-white font-black" style="font-size: clamp(3.5rem, 7vw, 6rem); line-height: 1.0; letter-spacing: -0.02em;">
             Keep<br>Austin<br>Haunted
           </h2>
-          <p data-animate="fade-up" style="transition-delay: 0.15s" class="mt-8 text-gray-400 text-lg md:text-xl max-w-sm">Austin's dark history is waiting. Join us for a ghost tour unlike any other — on wheels, after dark, through the city's most haunted streets.</p>
-          <a data-animate="fade-up" style="transition-delay: 0.3s" href="{{ client.bookingUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center mt-6 px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 rounded-lg focus:ring-4 focus:ring-purple-900 transition-colors">
+          <div data-animate="fade-up" style="transition-delay: 0.1s" class="flex items-center gap-5 mt-6">
+            {% for profile in client.social %}
+            <a href="{{ profile.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ profile.label }}" class="text-gray-400 hover:text-white transition-colors" style="font-size: 2.5rem;">
+              <i class="bi bi-{{ profile.label | lower }}"></i>
+            </a>
+            {% endfor %}
+          </div>
+          <p data-animate="fade-up" style="transition-delay: 0.25s" class="mt-8 text-gray-400 text-lg md:text-xl max-w-sm">Austin's dark history is waiting. Join us for a ghost tour unlike any other — on wheels, after dark, through the city's most haunted streets.</p>
+          <a data-animate="fade-up" style="transition-delay: 0.4s" href="{{ client.bookingUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center mt-6 px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 rounded-lg focus:ring-4 focus:ring-purple-900 transition-colors">
             Book Your Tour
             <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -279,7 +286,7 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
   <!-- Gift Cards Section -->
   <section id="gift-cards" class="bg-gray-900 py-12 px-4">
     <div class="max-w-3xl mx-auto">
-      <iframe src="https://v2.reservationgenie.com/haunted-atx/gift_card_widget" width="100%" height="500" frameborder="0" style="border: none;" title="Gift Card Purchase"></iframe>
+      <iframe src="https://v2.reservationgenie.com/haunted-atx/gift_card_widget" width="100%" height="700" frameborder="0" style="border: none;" title="Gift Card Purchase"></iframe>
     </div>
   </section>
 

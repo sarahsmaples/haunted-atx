@@ -584,9 +584,6 @@ video {
 .z-50 {
   z-index: 50;
 }
-.col-span-2 {
-  grid-column: span 2 / span 2;
-}
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
@@ -721,9 +718,6 @@ video {
 .h-full {
   height: 100%;
 }
-.min-h-\[55vh\] {
-  min-height: 55vh;
-}
 .min-h-\[7rem\] {
   min-height: 7rem;
 }
@@ -842,11 +836,17 @@ video {
 .gap-4 {
   gap: 1rem;
 }
+.gap-5 {
+  gap: 1.25rem;
+}
 .gap-6 {
   gap: 1.5rem;
 }
 .gap-8 {
   gap: 2rem;
+}
+.gap-y-4 {
+  row-gap: 1rem;
 }
 .space-x-3 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
@@ -886,11 +886,17 @@ video {
 .rounded-lg {
   border-radius: 0.5rem;
 }
+.rounded-none {
+  border-radius: 0px;
+}
 .rounded-xl {
   border-radius: 0.75rem;
 }
 .border {
   border-width: 1px;
+}
+.border-0 {
+  border-width: 0px;
 }
 .border-b {
   border-bottom-width: 1px;
@@ -1049,8 +1055,8 @@ video {
 .pt-10 {
   padding-top: 2.5rem;
 }
-.pt-16 {
-  padding-top: 4rem;
+.pt-24 {
+  padding-top: 6rem;
 }
 .text-center {
   text-align: center;
@@ -1251,14 +1257,19 @@ video {
 
 /* ── Nav open/close transitions ─────────────────────────────────────────── */
 
-/* Mobile nav: collapsed by default, unfurls on open */
+/* Mobile nav: collapsed by default, overlays page when open */
 @media (max-width: 988px) {
   #navbar-main {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
     display: block !important;
     max-height: 0;
     overflow: hidden;
     opacity: 0;
     transition: max-height 0.35s ease, opacity 0.25s ease;
+    z-index: 49;
   }
   #navbar-main.nav-open {
     max-height: 600px;
@@ -1665,14 +1676,6 @@ video {
     right: auto;
   }
 
-  .md\:col-span-1 {
-    grid-column: span 1 / span 1;
-  }
-
-  .md\:mt-0 {
-    margin-top: 0px;
-  }
-
   .md\:mt-20 {
     margin-top: 5rem;
   }
@@ -1712,6 +1715,10 @@ video {
 
   .md\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .md\:gap-y-0 {
+    row-gap: 0px;
   }
 
   .md\:divide-x > :not([hidden]) ~ :not([hidden]) {

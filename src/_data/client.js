@@ -55,7 +55,7 @@ module.exports = {
   social: [
     { label: "Facebook", url: "https://www.facebook.com/hauntedatx" },
     { label: "Instagram", url: "https://www.instagram.com/hauntedatx" },
-    { label: "TikTok", url: "https://www.tiktok.com/@hauntedatx" },
+    { label: "TikTok", url: "https://www.tiktok.com/@haunted.atx" },
   ],
 
   // ─── Analytics ───────────────────────────────────────────────────────────

@@ -17,7 +17,7 @@ layout: layouts/base.njk
 
 <!-- Stats Bar -->
 <div class="bg-purple-950 border-b border-purple-900 text-white">
-  <div class="max-w-screen-xl mx-auto px-6 py-5 grid grid-cols-2 md:grid-cols-4 md:divide-x md:divide-purple-900 text-center">
+  <div class="max-w-screen-xl mx-auto px-6 py-5 grid grid-cols-2 md:grid-cols-4 gap-y-4 md:gap-y-0 md:divide-x md:divide-purple-900 text-center">
     <div class="px-4">
       <div class="text-xs uppercase tracking-widest text-purple-400 mb-1">Price</div>
       <div class="font-bold text-lg">{{ price }}</div>
@@ -26,11 +26,11 @@ layout: layouts/base.njk
       <div class="text-xs uppercase tracking-widest text-purple-400 mb-1">Duration</div>
       <div class="font-bold text-lg">{{ duration }}</div>
     </div>
-    <div class="px-4 col-span-2 md:col-span-1 mt-4 md:mt-0">
+    <div class="px-4">
       <div class="text-xs uppercase tracking-widest text-purple-400 mb-1">Schedule</div>
-      <div class="font-bold text-lg">{{ schedule }}</div>
+      <div class="font-bold text-lg">{{ schedule | replace(", ", ",<br class='md:hidden'> ") | safe }}</div>
     </div>
-    <div class="px-4 col-span-2 md:col-span-1 mt-4 md:mt-0">
+    <div class="px-4">
       <div class="text-xs uppercase tracking-widest text-purple-400 mb-1">Capacity</div>
       <div class="font-bold text-lg">{{ capacity }}</div>
     </div>
