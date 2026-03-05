@@ -1499,6 +1499,18 @@ video {
 #lb-prev:hover,
 #lb-next:hover { opacity: 1; }
 
+/* Tour page body text */
+.tour-content p,
+.tour-content dd {
+  font-size: 1.125rem;
+}
+@media (min-width: 768px) {
+  .tour-content p,
+  .tour-content dd {
+    font-size: 1.25rem;
+  }
+}
+
 /* Intro Gallery Strip */
 .intro-gallery-wrap {
   position: relative;
