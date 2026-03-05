@@ -28,7 +28,7 @@ layout: layouts/base.njk
     </div>
     <div class="px-4">
       <div class="text-xs uppercase tracking-widest text-purple-400 mb-1">Schedule</div>
-      <div class="font-bold text-lg">{{ schedule | replace(", ", ",<br class='md:hidden'> ") | safe }}</div>
+      <div class="font-bold text-lg">{{ schedule | replace(", ", ",&nbsp;<br class='md:hidden'>") | safe }}</div>
     </div>
     <div class="px-4">
       <div class="text-xs uppercase tracking-widest text-purple-400 mb-1">Capacity</div>
@@ -53,13 +53,13 @@ layout: layouts/base.njk
           <div class="mb-1">
             <span class="text-3xl font-bold">{{ price }}</span>
           </div>
-          <p class="text-gray-400 text-sm mb-6">{{ pricenote }}</p>
+          <p class="text-gray-400 text-base mb-6">{{ pricenote }}</p>
           <a href="{{ client.bookingUrl }}" target="_blank" rel="noopener noreferrer"
             class="flex items-center justify-center w-full bg-purple-700 hover:bg-purple-800 text-white font-semibold px-6 py-3 rounded-lg transition-colors mb-6">
             Find Available Dates
             <svg class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
           </a>
-          <ul class="text-sm text-gray-400 space-y-2">
+          <ul class="text-base text-gray-400 space-y-2">
             {% for perk in perks %}
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-purple-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
