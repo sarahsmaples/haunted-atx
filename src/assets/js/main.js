@@ -2,7 +2,8 @@
 const heroVideo = document.getElementById('heroVideo');
 if (heroVideo) {
   heroVideo.muted = true;
-  heroVideo.play().catch(() => {});
+  const p = heroVideo.play();
+  if (p && p.catch) p.catch(() => {});
 }
 
 // Mobile menu toggle
