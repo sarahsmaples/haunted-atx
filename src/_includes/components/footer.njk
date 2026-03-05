@@ -25,9 +25,7 @@
         <h2 class="text-sm font-semibold uppercase tracking-wider mb-4">Quick Links</h2>
         <ul class="text-gray-400 text-sm space-y-2">
           <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
-          <li><a href="{{ '/tours/' | url }}" class="hover:text-white transition-colors">Tours</a></li>
-          <li><a href="{{ '/about/' | url }}" class="hover:text-white transition-colors">About</a></li>
-          <li><a href="{{ '/contact/' | url }}" class="hover:text-white transition-colors">Contact</a></li>
+          <li><a href="{{ '/#contact' | url }}" class="hover:text-white transition-colors">Contact</a></li>
           {% if client.bookingUrl %}
           <li><a href="{{ client.bookingUrl }}" class="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">Book a Tour</a></li>
           {% endif %}
