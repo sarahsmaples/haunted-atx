@@ -128,6 +128,43 @@ if (galleries.length) {
   });
 }
 
+// Intro Gallery Strip
+const igTrack = document.getElementById('igTrack');
+if (igTrack) {
+  // Shuffle images
+  const imgs = Array.from(igTrack.querySelectorAll('.ig-img'));
+  for (let i = imgs.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    igTrack.appendChild(imgs[j]);
+    imgs.splice(j, 1);
+  }
+
+  const scrollAmt = () => igTrack.clientWidth * 0.75;
+
+  document.querySelector('.ig-arrow-left').addEventListener('click', () => {
+    igTrack.scrollBy({ left: -scrollAmt(), behavior: 'smooth' });
+  });
+  document.querySelector('.ig-arrow-right').addEventListener('click', () => {
+    igTrack.scrollBy({ left: scrollAmt(), behavior: 'smooth' });
+  });
+
+  // Slow auto-scroll — pauses on hover/touch
+  function startAutoScroll() {
+    return setInterval(() => {
+      if (igTrack.scrollLeft + igTrack.clientWidth >= igTrack.scrollWidth) {
+        igTrack.scrollLeft = 0;
+      } else {
+        igTrack.scrollLeft += 1;
+      }
+    }, 20);
+  }
+
+  let autoScroll = startAutoScroll();
+  igTrack.addEventListener('mouseenter', () => clearInterval(autoScroll));
+  igTrack.addEventListener('touchstart', () => clearInterval(autoScroll), { passive: true });
+  igTrack.addEventListener('mouseleave', () => { autoScroll = startAutoScroll(); });
+}
+
 // Desktop: click to toggle dropdown, click outside to close
 if (toursMenuItem && toursDropdown && toursToggle && window.matchMedia("(min-width: 989px)").matches) {
   toursToggle.addEventListener("click", (e) => {

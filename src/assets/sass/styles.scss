@@ -327,3 +327,63 @@
 #lb-next { right: 0.5rem; }
 #lb-prev:hover,
 #lb-next:hover { opacity: 1; }
+
+/* Intro Gallery Strip */
+.intro-gallery-wrap {
+  position: relative;
+  height: 275px;
+  overflow: hidden;
+  background: #000;
+
+  @media (max-width: 767px) {
+    height: 220px;
+  }
+}
+
+.ig-track {
+  display: flex;
+  height: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  gap: 0;
+}
+
+.ig-track::-webkit-scrollbar {
+  display: none;
+}
+
+.ig-img {
+  height: 100%;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.ig-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.45);
+  color: white;
+  border: none;
+  font-size: 3.5rem;
+  line-height: 1;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.15s ease, background 0.15s ease;
+
+  &:hover {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.ig-arrow-left { left: 0; }
+.ig-arrow-right { right: 0; }
+
