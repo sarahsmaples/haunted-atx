@@ -1,3 +1,10 @@
+// Hero video iOS autoplay fallback
+const heroVideo = document.getElementById('heroVideo');
+if (heroVideo) {
+  heroVideo.muted = true;
+  heroVideo.play().catch(() => {});
+}
+
 // Mobile menu toggle
 const mobileToggle = document.getElementById("mobile-menu-toggle");
 const mobileMenu = document.getElementById("navbar-main");
