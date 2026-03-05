@@ -560,6 +560,9 @@ video {
 .inset-0 {
   inset: 0px;
 }
+.bottom-\[15px\] {
+  bottom: 15px;
+}
 .left-0 {
   left: 0px;
 }
@@ -625,9 +628,6 @@ video {
 .mb-8 {
   margin-bottom: 2rem;
 }
-.mb-\[-12\%\] {
-  margin-bottom: -12%;
-}
 .ml-2 {
   margin-left: 0.5rem;
 }
@@ -660,9 +660,6 @@ video {
 }
 .mt-8 {
   margin-top: 2rem;
-}
-.mt-\[-8\%\] {
-  margin-top: -8%;
 }
 .block {
   display: block;
@@ -1674,10 +1671,6 @@ video {
 
   .md\:right-auto {
     right: auto;
-  }
-
-  .md\:mt-20 {
-    margin-top: 5rem;
   }
 
   .md\:block {

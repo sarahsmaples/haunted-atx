@@ -56,21 +56,25 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost walk, paranormal Aus
           </div>
         </div>
 
-        <!-- Fleet image: full viewport width -->
-        <div class="mt-4 md:mt-20 px-2 w-full">
-          <img
-            src="{{ '/assets/images/fleet.png' | url }}"
-            alt="Haunted ATX ghost tour vehicles"
-            loading="lazy"
-            class="hidden md:block w-full animate-fleet-up mt-[-8%] mb-[-12%]">
+        <!-- Mobile profile image (in flow) -->
+        <div class="md:hidden mt-4 px-2 w-full">
           <img
             src="{{ '/assets/images/black-profile.png' | url }}"
             alt="Haunted ATX ghost tour vehicle"
             loading="lazy"
-            class="md:hidden w-full animate-profile-right">
+            class="w-full animate-profile-right">
         </div>
 
       </div>
+    </div>
+
+    <!-- Desktop fleet: pinned 15px above the marquee slider -->
+    <div class="hidden md:block absolute bottom-[15px] left-0 right-0 px-2 pointer-events-none">
+      <img
+        src="{{ '/assets/images/fleet.png' | url }}"
+        alt="Haunted ATX ghost tour vehicles"
+        loading="lazy"
+        class="w-full animate-fleet-up">
     </div>
 
   </section>
