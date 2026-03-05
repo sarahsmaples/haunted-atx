@@ -387,3 +387,12 @@
 .ig-arrow-left { left: 0; }
 .ig-arrow-right { right: 0; }
 
+/* Gallery page masonry */
+.photo-gallery {
+  columns: 1;
+  column-gap: 0.75rem;
+
+  @media (min-width: 640px) { columns: 2; }
+  @media (min-width: 1024px) { columns: 3; }
+}
+

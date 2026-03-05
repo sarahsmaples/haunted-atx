@@ -628,6 +628,9 @@ video {
 .mb-8 {
   margin-bottom: 2rem;
 }
+.mb-\[-12\%\] {
+  margin-bottom: -12%;
+}
 .ml-2 {
   margin-left: 0.5rem;
 }
@@ -660,6 +663,9 @@ video {
 }
 .mt-8 {
   margin-top: 2rem;
+}
+.mt-\[-8\%\] {
+  margin-top: -8%;
 }
 .block {
   display: block;
@@ -763,6 +769,9 @@ video {
 }
 .max-w-sm {
   max-width: 24rem;
+}
+.max-w-xl {
+  max-width: 36rem;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -1040,8 +1049,8 @@ video {
 .pt-10 {
   padding-top: 2.5rem;
 }
-.pt-28 {
-  padding-top: 7rem;
+.pt-16 {
+  padding-top: 4rem;
 }
 .text-center {
   text-align: center;
@@ -1541,6 +1550,17 @@ video {
 
 .ig-arrow-left { left: 0; }
 .ig-arrow-right { right: 0; }
+
+/* Gallery page masonry */
+.photo-gallery {
+  -moz-columns: 1;
+       columns: 1;
+  -moz-column-gap: 0.75rem;
+       column-gap: 0.75rem;
+
+  @media (min-width: 640px) { -moz-columns: 2; columns: 2; }
+  @media (min-width: 1024px) { -moz-columns: 3; columns: 3; }
+}
 .hover\:border-purple-500:hover {
   --tw-border-opacity: 1;
   border-color: rgb(168 85 247 / var(--tw-border-opacity));
@@ -1710,8 +1730,8 @@ video {
     padding-right: 2.5rem;
   }
 
-  .md\:pt-40 {
-    padding-top: 10rem;
+  .md\:pt-36 {
+    padding-top: 9rem;
   }
 
   .md\:text-4xl {
@@ -1726,6 +1746,11 @@ video {
 
   .md\:text-lg {
     font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .md\:text-xl {
+    font-size: 1.25rem;
     line-height: 1.75rem;
   }
 }
@@ -1824,10 +1849,6 @@ video {
     display: grid;
   }
 
-  .lg\:hidden {
-    display: none;
-  }
-
   .lg\:h-72 {
     height: 18rem;
   }
@@ -1844,21 +1865,25 @@ video {
     gap: 4rem;
   }
 
-  .lg\:whitespace-nowrap {
-    white-space: nowrap;
-  }
-
   .lg\:px-16 {
     padding-left: 4rem;
     padding-right: 4rem;
   }
 
-  .lg\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+  .lg\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }
 @media (min-width: 1280px) {
+
+  .xl\:hidden {
+    display: none;
+  }
+
+  .xl\:whitespace-nowrap {
+    white-space: nowrap;
+  }
 
   .xl\:text-6xl {
     font-size: 3.75rem;

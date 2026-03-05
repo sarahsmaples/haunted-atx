@@ -139,30 +139,52 @@ if (igTrack) {
     imgs.splice(j, 1);
   }
 
+  // Clone all images for seamless looping
+  Array.from(igTrack.querySelectorAll('.ig-img')).forEach(img => {
+    igTrack.appendChild(img.cloneNode(true));
+  });
+
   const scrollAmt = () => igTrack.clientWidth * 0.75;
+  const getHalf = () => igTrack.scrollWidth / 2;
 
-  document.querySelector('.ig-arrow-left').addEventListener('click', () => {
-    igTrack.scrollBy({ left: -scrollAmt(), behavior: 'smooth' });
-  });
-  document.querySelector('.ig-arrow-right').addEventListener('click', () => {
-    igTrack.scrollBy({ left: scrollAmt(), behavior: 'smooth' });
-  });
-
-  // Slow auto-scroll — pauses on hover/touch
+  // Auto-scroll — seamlessly resets at halfway point (clone boundary)
   function startAutoScroll() {
     return setInterval(() => {
-      if (igTrack.scrollLeft + igTrack.clientWidth >= igTrack.scrollWidth) {
-        igTrack.scrollLeft = 0;
-      } else {
-        igTrack.scrollLeft += 1;
+      igTrack.scrollLeft += 1;
+      if (igTrack.scrollLeft >= getHalf()) {
+        igTrack.scrollLeft -= getHalf();
       }
     }, 20);
   }
 
   let autoScroll = startAutoScroll();
+
+  function pauseThenResume() {
+    clearInterval(autoScroll);
+    autoScroll = setTimeout(() => { autoScroll = startAutoScroll(); }, 3000);
+  }
+
+  const igLeft = document.querySelector('.ig-arrow-left');
+  const igRight = document.querySelector('.ig-arrow-right');
+
+  igLeft.addEventListener('click', () => {
+    pauseThenResume();
+    // Teleport to second set if near the start so backwards scroll has room
+    if (igTrack.scrollLeft < scrollAmt()) igTrack.scrollLeft += getHalf();
+    igTrack.scrollBy({ left: -scrollAmt(), behavior: 'smooth' });
+  });
+  igRight.addEventListener('click', () => {
+    pauseThenResume();
+    igTrack.scrollBy({ left: scrollAmt(), behavior: 'smooth' });
+    // Reset silently after smooth scroll completes
+    setTimeout(() => {
+      if (igTrack.scrollLeft >= getHalf()) igTrack.scrollLeft -= getHalf();
+    }, 600);
+  });
+
   igTrack.addEventListener('mouseenter', () => clearInterval(autoScroll));
-  igTrack.addEventListener('touchstart', () => clearInterval(autoScroll), { passive: true });
-  igTrack.addEventListener('mouseleave', () => { autoScroll = startAutoScroll(); });
+  igTrack.addEventListener('touchstart', () => pauseThenResume(), { passive: true });
+  igTrack.addEventListener('mouseleave', () => { clearInterval(autoScroll); autoScroll = startAutoScroll(); });
 }
 
 // Desktop: click to toggle dropdown, click outside to close
