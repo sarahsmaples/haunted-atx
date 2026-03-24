@@ -1,9 +1,9 @@
 module.exports = {
   // ─── Basic Info ───────────────────────────────────────────────────────────
   name: "Haunted ATX",
-  tagline: "Austin's Premier Ghost Tour Experience",
+  tagline: "The Only Austin Ghost Tour on Wheels!",
   description:
-    "Haunted ATX leads walking ghost tours through Austin's most haunted streets, buildings, and hidden history. Book a tour and discover the dark side of the Live Music Capital of the World.",
+    "Haunted ATX is the only Austin Ghost Tours on wheels! We offer a public van tour that accommodates groups up to 11 and public and private hearse limo tours that come with a variety of perks like custom pick up and more intimate group sizes!",
   phone: "(737) 210-1869",
   email: "ghosthost@hauntedatx.com",
   domain: "https://www.hauntedatx.com",
@@ -19,7 +19,7 @@ module.exports = {
 
   // ─── Tour Details ─────────────────────────────────────────────────────────
   // Link to booking platform or your /book page
-  bookingUrl: "https://v2.reservationgenie.com/haunted-atx/reservations/calendar",
+  bookingUrl: "https://reservationgenie.com/haunted-atx/reservations/calendar",
   // Google Maps URL for meeting point
   mapUrl: "https://maps.app.goo.gl/tcG2xYY4LWsMW4dR9",
   // Google Business Profile — used for review attribution links

@@ -5,6 +5,7 @@
 @layer base {
   html, body {
     background-color: rgb(17 24 39); /* gray-900 — prevents white flash through transparent nav */
+    scroll-behavior: smooth;
   }
 
   body {
@@ -63,13 +64,21 @@
   transition: padding-top 0.3s ease, padding-bottom 0.3s ease;
 }
 
-/* Expanded: links at text-lg */
+/* Expanded: links at text-lg (989–1199px), text-xl (1200px+) */
 #navbar-main a,
 #navbar-main button,
 #buy-tickets-btn {
   font-size: 1.125rem;
   line-height: 1.75rem;
   transition: font-size 0.3s ease, line-height 0.3s ease;
+}
+
+@media (min-width: 1200px) {
+  #navbar-main a,
+  #navbar-main button,
+  #buy-tickets-btn {
+    font-size: 1.25rem;
+  }
 }
 
 /* Condensed (scrolled) state — matches original Tailwind values */
