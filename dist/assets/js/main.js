@@ -136,120 +136,97 @@ if (galleries.length) {
   });
 }
 
-// Intro Gallery Strip
-const igTrack = document.getElementById('igTrack');
-if (igTrack) {
-  // Shuffle images
-  const imgs = Array.from(igTrack.querySelectorAll('.ig-img'));
-  for (let i = imgs.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    igTrack.appendChild(imgs[j]);
-    imgs.splice(j, 1);
+// Shared auto-scroll factory using requestAnimationFrame (iOS-compatible)
+function makeSlider(track, imgSelector, arrowLeftSel, arrowRightSel, shuffled) {
+  if (!track) return;
+
+  // Optional shuffle
+  if (shuffled) {
+    const imgs = Array.from(track.querySelectorAll(imgSelector));
+    for (let i = imgs.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      track.appendChild(imgs[j]);
+      imgs.splice(j, 1);
+    }
   }
 
-  // Clone all images for seamless looping
-  Array.from(igTrack.querySelectorAll('.ig-img')).forEach(img => {
-    igTrack.appendChild(img.cloneNode(true));
+  // Clone for seamless loop
+  Array.from(track.querySelectorAll(imgSelector)).forEach(img => {
+    track.appendChild(img.cloneNode(true));
   });
 
-  const scrollAmt = () => igTrack.clientWidth * 0.75;
-  const getHalf = () => igTrack.scrollWidth / 2;
+  const scrollAmt = () => track.clientWidth * 0.75;
+  const getHalf  = () => track.scrollWidth / 2;
 
-  // Auto-scroll — seamlessly resets at halfway point (clone boundary)
-  function startAutoScroll() {
-    return setInterval(() => {
-      igTrack.scrollLeft += 1;
-      if (igTrack.scrollLeft >= getHalf()) {
-        igTrack.scrollLeft -= getHalf();
+  let paused = false;
+  let resumeTimer = null;
+  let lastTime = null;
+  let rafId = null;
+
+  function tick(ts) {
+    if (!paused) {
+      if (lastTime !== null) {
+        const delta = ts - lastTime;
+        track.scrollLeft += delta * 0.05; // ~1px per 20ms at 60fps
+        if (track.scrollLeft >= getHalf()) track.scrollLeft -= getHalf();
       }
-    }, 20);
+      lastTime = ts;
+    } else {
+      lastTime = null;
+    }
+    rafId = requestAnimationFrame(tick);
   }
 
-  let autoScroll = startAutoScroll();
+  rafId = requestAnimationFrame(tick);
+
+  function pause() {
+    paused = true;
+    clearTimeout(resumeTimer);
+  }
 
   function pauseThenResume() {
-    clearInterval(autoScroll);
-    autoScroll = setTimeout(() => { autoScroll = startAutoScroll(); }, 3000);
+    pause();
+    resumeTimer = setTimeout(() => { paused = false; }, 3000);
   }
 
-  const igLeft = document.querySelector('.ig-arrow-left');
-  const igRight = document.querySelector('.ig-arrow-right');
+  const arrowLeft  = document.querySelector(arrowLeftSel);
+  const arrowRight = document.querySelector(arrowRightSel);
 
-  igLeft.addEventListener('click', () => {
+  if (arrowLeft) arrowLeft.addEventListener('click', () => {
     pauseThenResume();
-    // Teleport to second set if near the start so backwards scroll has room
-    if (igTrack.scrollLeft < scrollAmt()) igTrack.scrollLeft += getHalf();
-    igTrack.scrollBy({ left: -scrollAmt(), behavior: 'smooth' });
+    if (track.scrollLeft < scrollAmt()) track.scrollLeft += getHalf();
+    track.scrollBy({ left: -scrollAmt(), behavior: 'smooth' });
   });
-  igRight.addEventListener('click', () => {
+  if (arrowRight) arrowRight.addEventListener('click', () => {
     pauseThenResume();
-    igTrack.scrollBy({ left: scrollAmt(), behavior: 'smooth' });
-    // Reset silently after smooth scroll completes
+    track.scrollBy({ left: scrollAmt(), behavior: 'smooth' });
     setTimeout(() => {
-      if (igTrack.scrollLeft >= getHalf()) igTrack.scrollLeft -= getHalf();
+      if (track.scrollLeft >= getHalf()) track.scrollLeft -= getHalf();
     }, 600);
   });
 
-  igTrack.addEventListener('mouseenter', () => clearInterval(autoScroll));
-  igTrack.addEventListener('touchstart', () => pauseThenResume(), { passive: true });
-  igTrack.addEventListener('mouseleave', () => { clearInterval(autoScroll); autoScroll = startAutoScroll(); });
+  track.addEventListener('mouseenter', pause);
+  track.addEventListener('mouseleave', () => { paused = false; });
+  track.addEventListener('touchstart', pauseThenResume, { passive: true });
 }
+
+// Intro Gallery Strip
+makeSlider(
+  document.getElementById('igTrack'),
+  '.ig-img',
+  '.ig-arrow-left',
+  '.ig-arrow-right',
+  true
+);
 
 // Guides Slider
-const gsTrack = document.getElementById('gsTrack');
-if (gsTrack) {
-  // Shuffle images
-  const gsImgs = Array.from(gsTrack.querySelectorAll('.gs-img'));
-  for (let i = gsImgs.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    gsTrack.appendChild(gsImgs[j]);
-    gsImgs.splice(j, 1);
-  }
-
-  // Clone all images for seamless looping
-  Array.from(gsTrack.querySelectorAll('.gs-img')).forEach(img => {
-    gsTrack.appendChild(img.cloneNode(true));
-  });
-
-  const scrollAmt = () => gsTrack.clientWidth * 0.75;
-  const getHalf = () => gsTrack.scrollWidth / 2;
-
-  function startAutoScroll() {
-    return setInterval(() => {
-      gsTrack.scrollLeft += 1;
-      if (gsTrack.scrollLeft >= getHalf()) {
-        gsTrack.scrollLeft -= getHalf();
-      }
-    }, 20);
-  }
-
-  let gsAutoScroll = startAutoScroll();
-
-  function gsPauseThenResume() {
-    clearInterval(gsAutoScroll);
-    gsAutoScroll = setTimeout(() => { gsAutoScroll = startAutoScroll(); }, 3000);
-  }
-
-  const gsLeft = document.querySelector('.gs-arrow-left');
-  const gsRight = document.querySelector('.gs-arrow-right');
-
-  gsLeft.addEventListener('click', () => {
-    gsPauseThenResume();
-    if (gsTrack.scrollLeft < scrollAmt()) gsTrack.scrollLeft += getHalf();
-    gsTrack.scrollBy({ left: -scrollAmt(), behavior: 'smooth' });
-  });
-  gsRight.addEventListener('click', () => {
-    gsPauseThenResume();
-    gsTrack.scrollBy({ left: scrollAmt(), behavior: 'smooth' });
-    setTimeout(() => {
-      if (gsTrack.scrollLeft >= getHalf()) gsTrack.scrollLeft -= getHalf();
-    }, 600);
-  });
-
-  gsTrack.addEventListener('mouseenter', () => clearInterval(gsAutoScroll));
-  gsTrack.addEventListener('touchstart', () => gsPauseThenResume(), { passive: true });
-  gsTrack.addEventListener('mouseleave', () => { clearInterval(gsAutoScroll); gsAutoScroll = startAutoScroll(); });
-}
+makeSlider(
+  document.getElementById('gsTrack'),
+  '.gs-img',
+  '.gs-arrow-left',
+  '.gs-arrow-right',
+  true
+);
 
 // Desktop: click to toggle dropdown, click outside to close
 if (toursMenuItem && toursDropdown && toursToggle && window.matchMedia("(min-width: 989px)").matches) {
