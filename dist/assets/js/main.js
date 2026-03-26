@@ -195,6 +195,62 @@ if (igTrack) {
   igTrack.addEventListener('mouseleave', () => { clearInterval(autoScroll); autoScroll = startAutoScroll(); });
 }
 
+// Guides Slider
+const gsTrack = document.getElementById('gsTrack');
+if (gsTrack) {
+  // Shuffle images
+  const gsImgs = Array.from(gsTrack.querySelectorAll('.gs-img'));
+  for (let i = gsImgs.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    gsTrack.appendChild(gsImgs[j]);
+    gsImgs.splice(j, 1);
+  }
+
+  // Clone all images for seamless looping
+  Array.from(gsTrack.querySelectorAll('.gs-img')).forEach(img => {
+    gsTrack.appendChild(img.cloneNode(true));
+  });
+
+  const scrollAmt = () => gsTrack.clientWidth * 0.75;
+  const getHalf = () => gsTrack.scrollWidth / 2;
+
+  function startAutoScroll() {
+    return setInterval(() => {
+      gsTrack.scrollLeft += 1;
+      if (gsTrack.scrollLeft >= getHalf()) {
+        gsTrack.scrollLeft -= getHalf();
+      }
+    }, 20);
+  }
+
+  let gsAutoScroll = startAutoScroll();
+
+  function gsPauseThenResume() {
+    clearInterval(gsAutoScroll);
+    gsAutoScroll = setTimeout(() => { gsAutoScroll = startAutoScroll(); }, 3000);
+  }
+
+  const gsLeft = document.querySelector('.gs-arrow-left');
+  const gsRight = document.querySelector('.gs-arrow-right');
+
+  gsLeft.addEventListener('click', () => {
+    gsPauseThenResume();
+    if (gsTrack.scrollLeft < scrollAmt()) gsTrack.scrollLeft += getHalf();
+    gsTrack.scrollBy({ left: -scrollAmt(), behavior: 'smooth' });
+  });
+  gsRight.addEventListener('click', () => {
+    gsPauseThenResume();
+    gsTrack.scrollBy({ left: scrollAmt(), behavior: 'smooth' });
+    setTimeout(() => {
+      if (gsTrack.scrollLeft >= getHalf()) gsTrack.scrollLeft -= getHalf();
+    }, 600);
+  });
+
+  gsTrack.addEventListener('mouseenter', () => clearInterval(gsAutoScroll));
+  gsTrack.addEventListener('touchstart', () => gsPauseThenResume(), { passive: true });
+  gsTrack.addEventListener('mouseleave', () => { clearInterval(gsAutoScroll); gsAutoScroll = startAutoScroll(); });
+}
+
 // Desktop: click to toggle dropdown, click outside to close
 if (toursMenuItem && toursDropdown && toursToggle && window.matchMedia("(min-width: 989px)").matches) {
   toursToggle.addEventListener("click", (e) => {

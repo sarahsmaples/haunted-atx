@@ -112,7 +112,7 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost tour, paranormal Aus
             </a>
             {% endfor %}
           </div>
-          <p data-animate="fade-up" style="transition-delay: 0.25s" class="mt-8 text-gray-400 text-lg md:text-xl max-w-sm">Austin's dark history is waiting. Join us for a ghost tour unlike any other — on wheels, after dark, through the city's most haunted streets.</p>
+          <p data-animate="fade-up" style="transition-delay: 0.25s" class="mt-8 text-gray-400 text-lg md:text-xl max-w-sm">Austin's dark history is waiting. Join us for a ghost tour unlike any other — on wheels, after dark, through the city's most haunted streets. It's the most fun and unique way to explore Austin's history.</p>
           <a data-animate="fade-up" style="transition-delay: 0.4s" href="/#tours" class="inline-flex items-center mt-6 px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 rounded-lg focus:ring-4 focus:ring-purple-900 transition-colors">
             View Our Tours
             <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -134,7 +134,7 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost tour, paranormal Aus
   <section id="tours" class="bg-gray-900 text-white py-16 px-4">
     <div class="max-w-screen-xl mx-auto">
       <h2 data-animate="fade-up" class="mb-3 font-extrabold tracking-tight text-center" style="font-size: clamp(2.5rem, 8vw, 6.25rem);">Choose Your Tour</h2>
-      <p data-animate="fade-up" style="transition-delay: 0.15s" class="mb-12 text-gray-400 text-center text-lg md:text-xl max-w-2xl mx-auto">No prior ghost-hunting experience required.</p>
+      <p data-animate="fade-up" style="transition-delay: 0.15s" class="mb-12 text-gray-400 text-center text-lg md:text-xl max-w-2xl mx-auto">No prior ghost-hunting experience required. Each of our unique Austin tours blends fun storytelling with real local history — there's something for every kind of adventurer.</p>
       <div class="grid gap-8 sm:grid-cols-3">
 
         <!-- Van Tour — 1st -->
@@ -187,28 +187,14 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost tour, paranormal Aus
   <div class="intro-gallery-wrap">
     <button class="ig-arrow ig-arrow-left" aria-label="Scroll left">&#8249;</button>
     <div class="ig-track" id="igTrack">
-      {% set galleryImages = [
-        { src: '/assets/images/intro-gallery/bach-party-white.jpg', alt: '' },
-        { src: '/assets/images/intro-gallery/black-hearse.jpg', alt: '' },
-        { src: '/assets/images/intro-gallery/black-interior-cropped.jpg', alt: '' },
-        { src: '/assets/images/intro-gallery/black-private-tour.jpg', alt: '' },
-        { src: '/assets/images/intro-gallery/black-wedding.jpg', alt: '' },
-        { src: '/assets/images/intro-gallery/fleet.jpg', alt: '' },
-        { src: '/assets/images/intro-gallery/interior.PNG', alt: '' },
-        { src: '/assets/images/intro-gallery/matties.png', alt: '' },
-        { src: '/assets/images/intro-gallery/mljm.jpg', alt: '' },
-        { src: '/assets/images/intro-gallery/para1.jpg', alt: '' },
-        { src: '/assets/images/intro-gallery/skelly-in-black.jpg', alt: '' },
-        { src: '/assets/images/intro-gallery/van-at-cap.jpg', alt: '' },
-        { src: '/assets/images/intro-gallery/van-at-night.jpg', alt: '' },
-        { src: '/assets/images/intro-gallery/van-keys.jpg', alt: '' },
-        { src: '/assets/images/intro-gallery/white-interior.PNG', alt: '' }
-      ] %}
-      {% for img in galleryImages %}
+      {% for img in introGalleryImages %}
       <img src="{{ img.src | url }}" alt="{{ img.alt }}" class="ig-img" loading="lazy">
       {% endfor %}
     </div>
     <button class="ig-arrow ig-arrow-right" aria-label="Scroll right">&#8250;</button>
+    <a href="{{ '/gallery/' | url }}" class="ig-overlay" aria-label="View full gallery">
+      <span class="ig-overlay-btn">View Gallery</span>
+    </a>
   </div>
 
   <!-- Reviews Section -->
@@ -262,6 +248,29 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost tour, paranormal Aus
     </div>
   </section>
 
+  <!-- Meet the Guides Section -->
+  <section class="bg-gray-900 text-white py-16 px-4">
+    <div class="max-w-screen-xl mx-auto">
+
+      <div class="text-center mb-10" data-animate="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Ghost Hosts with the Most</h2>
+        <p class="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">Our guides are Austin locals, history nerds, and seasoned storytellers who know where the bodies are buried. Most have been haunting these streets with us for years, and their passion for Austin's dark past is the real reason guests keep coming back.</p>
+      </div>
+
+      <!-- Guides slider -->
+      <div class="guides-slider-wrap">
+        <button class="gs-arrow gs-arrow-left" aria-label="Scroll left">&#8249;</button>
+        <div class="gs-track" id="gsTrack">
+          {% for img in guideImages %}
+          <img src="{{ img.src | url }}" alt="{{ img.alt }}" class="gs-img" loading="lazy">
+          {% endfor %}
+        </div>
+        <button class="gs-arrow gs-arrow-right" aria-label="Scroll right">&#8250;</button>
+      </div>
+
+    </div>
+  </section>
+
   <!-- Contact Section -->
   <section id="contact" class="relative bg-gray-800 text-white py-12 px-4">
     <!-- Skull decoration: peeks in from left, ~50% off-screen, taller than section -->
@@ -275,7 +284,7 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost tour, paranormal Aus
     <div class="relative z-10 max-w-screen-xl mx-auto">
       <div class="text-center mb-10">
         <h2 data-animate="fade-up" class="mb-3 font-extrabold tracking-tight text-center" style="font-size: clamp(2.5rem, 8vw, 6.25rem);">Make Contact</h2>
-        <p data-animate="fade-up" style="transition-delay: 0.15s" class="text-gray-400 text-lg max-w-2xl mx-auto">Have a question about our tours? We'd love to hear from you.</p>
+        <p data-animate="fade-up" style="transition-delay: 0.15s" class="text-gray-400 text-lg max-w-2xl mx-auto">Have a question about our unique Austin ghost tours? We'd love to hear from you.</p>
       </div>
       <div class="max-w-2xl mx-auto">
         <iframe src="https://reservationgenie.com/haunted-atx/contact_form" width="100%" height="610" frameborder="0" style="border: none;" title="Contact Form"></iframe>
@@ -290,9 +299,19 @@ keywords: "ghost tours Austin, haunted Austin, Austin ghost tour, paranormal Aus
   </section>
 
   <!-- Gift Cards Section -->
-  <section id="gift-cards" class="bg-gray-900 py-12 px-4">
-    <div class="max-w-3xl mx-auto">
-      <iframe src="https://reservationgenie.com/haunted-atx/gift_card_widget" width="100%" height="700" frameborder="0" style="border: none;" title="Gift Card Purchase"></iframe>
+  <section id="gift-cards" class="py-12 px-4 bg-cover bg-center" style="background-image: url('{{ '/assets/images/gift-card-bg.jpg' | url }}')">
+    <div class="max-w-3xl mx-auto relative">
+      <!-- Skelly: z-10, behind the box (z-20), overlapping box left edge slightly -->
+      <img
+        src="{{ '/assets/images/skelly-wave.png' | url }}"
+        alt=""
+        aria-hidden="true"
+        class="hidden md:block absolute top-0 z-10 pointer-events-none select-none skelly-wave"
+        style="left: -210px; height: 300px; width: auto;">
+      <!-- Box: z-20, sits in front of skelly where they overlap -->
+      <div class="relative z-20 bg-gray-900 border border-gray-700 rounded-2xl p-6 md:p-10">
+        <iframe src="https://reservationgenie.com/haunted-atx/gift_card_widget" width="100%" height="600" frameborder="0" style="border: none;" title="Gift Card Purchase"></iframe>
+      </div>
     </div>
   </section>
 

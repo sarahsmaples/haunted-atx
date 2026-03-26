@@ -16,24 +16,6 @@ keywords: "haunted ATX photos, ghost tour photos Austin, hearse tour pictures, h
     </div>
 
     <div class="photo-gallery">
-      {% set galleryImages = [
-        { src: '/assets/images/intro-gallery/bach-party-white.jpg', alt: 'Bach party on the hearse tour' },
-        { src: '/assets/images/intro-gallery/black-hearse.jpg', alt: 'Black hearse exterior' },
-        { src: '/assets/images/intro-gallery/black-interior-cropped.jpg', alt: 'Hearse interior' },
-        { src: '/assets/images/intro-gallery/black-private-tour.jpg', alt: 'Private hearse tour' },
-        { src: '/assets/images/intro-gallery/black-wedding.jpg', alt: 'Wedding group on the hearse tour' },
-        { src: '/assets/images/intro-gallery/fleet.jpg', alt: 'Haunted ATX fleet' },
-        { src: '/assets/images/intro-gallery/interior.PNG', alt: 'Van interior' },
-        { src: '/assets/images/intro-gallery/matties.png', alt: 'Matties stop on tour' },
-        { src: '/assets/images/intro-gallery/mljm.jpg', alt: 'Tour group' },
-        { src: '/assets/images/intro-gallery/para1.jpg', alt: 'Paranormal investigation' },
-        { src: '/assets/images/intro-gallery/skeleton.png', alt: 'Skeleton decoration' },
-        { src: '/assets/images/intro-gallery/skelly-in-black.jpg', alt: 'Skelly in the hearse' },
-        { src: '/assets/images/intro-gallery/van-at-cap.jpg', alt: 'Van at the Capitol' },
-        { src: '/assets/images/intro-gallery/van-at-night.jpg', alt: 'Van at night' },
-        { src: '/assets/images/intro-gallery/van-keys.jpg', alt: 'Van tour keys' },
-        { src: '/assets/images/intro-gallery/white-interior.PNG', alt: 'White hearse interior' }
-      ] %}
       {% for img in galleryImages %}
       <img
         src="{{ img.src | url }}"

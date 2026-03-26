@@ -1,0 +1,230 @@
+---
+layout: layouts/base.njk
+title: Austin Ghost Tours
+description: "The best Austin ghost tours — on wheels. Compare all Haunted ATX experiences including hearse limo tours, van tours, and paranormal investigations. Starting at $49 per person."
+keywords: "Austin ghost tours, ghost tours Austin TX, haunted Austin tours, hearse ghost tour, paranormal investigation Austin, best ghost tour Austin"
+---
+
+<!-- Page Header -->
+<section class="bg-gray-900 border-b border-gray-800 pt-20 pb-10 px-4 text-center">
+  <div class="max-w-3xl mx-auto">
+    <p class="text-purple-400 text-xs font-semibold uppercase tracking-widest mb-3">Haunted ATX</p>
+    <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Choose Your Tour</h1>
+    <p class="text-gray-400 text-lg md:text-xl">Five ways to experience Austin's dark side — the best Austin ghost tours, on wheels. Pick your ride.</p>
+  </div>
+</section>
+
+<!-- Tour Cards Grid -->
+<section class="bg-gray-900 py-10 px-4">
+  <div class="max-w-screen-xl mx-auto">
+
+    <!-- Checkmark SVG macro -->
+    {%- macro check() -%}
+    <svg class="w-4 h-4 text-purple-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+    {%- endmacro -%}
+
+    <!-- Row 1: 3 public tours -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
+
+      <!-- Public Van Tour -->
+      <div class="bg-gray-800 border border-gray-700 rounded-2xl overflow-hidden flex flex-col">
+        <img src="{{ '/assets/images/van.jpg' | url }}" alt="Public Van Tour" class="w-full h-40 object-cover">
+        <div class="p-5 flex flex-col flex-1">
+          <div class="mb-3">
+            <span class="text-purple-400 text-xs font-semibold uppercase tracking-widest">Public · Best Value</span>
+            <h2 class="text-xl font-bold text-white mt-1">Public Van Tour</h2>
+            <p class="text-gray-400 text-sm mt-1">Air-conditioned, art-wrapped van with more seats — same haunted history.</p>
+          </div>
+          <div class="text-2xl font-bold text-white mb-4">$49<span class="text-sm font-normal text-gray-400"> / person</span></div>
+          <div class="grid grid-cols-3 gap-2 mb-4">
+            <div class="bg-gray-900 rounded-lg p-2 text-center">
+              <div class="text-purple-400 text-xs font-semibold uppercase tracking-widest leading-tight mb-0.5">Duration</div>
+              <div class="text-white text-sm font-semibold">~3 hrs</div>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-2 text-center">
+              <div class="text-purple-400 text-xs font-semibold uppercase tracking-widest leading-tight mb-0.5">Capacity</div>
+              <div class="text-white text-sm font-semibold">Up to 10</div>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-2 text-center">
+              <div class="text-purple-400 text-xs font-semibold uppercase tracking-widest leading-tight mb-0.5">Type</div>
+              <div class="text-white text-sm font-semibold">Public</div>
+            </div>
+          </div>
+          <ul class="text-gray-400 text-sm space-y-1.5 mb-5">
+            <li class="flex items-center gap-2">{{ check() }}BYOB — water &amp; sodas provided</li>
+            <li class="flex items-center gap-2">{{ check() }}Clay Pit 2-for-1 coupon included</li>
+            <li class="flex items-center gap-2">{{ check() }}Tue–Sun, 7:30 PM</li>
+          </ul>
+          <div class="flex gap-2 mt-auto">
+            <a href="{{ client.bookingUrl }}" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-2 bg-purple-700 hover:bg-purple-800 text-white rounded-lg font-semibold text-sm transition-colors">Book Now</a>
+            <a href="{{ '/tours/public-van-tour/' | url }}" class="flex-1 text-center py-2 border border-gray-600 hover:border-purple-500 text-gray-300 hover:text-white rounded-lg font-semibold text-sm transition-colors">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Public Hearse Tour -->
+      <div class="bg-gray-800 border border-gray-700 rounded-2xl overflow-hidden flex flex-col">
+        <img src="{{ '/assets/images/black-hearse.jpg' | url }}" alt="Public Hearse Tour" class="w-full h-40 object-cover object-bottom">
+        <div class="p-5 flex flex-col flex-1">
+          <div class="mb-3">
+            <span class="text-purple-400 text-xs font-semibold uppercase tracking-widest">Public · Classic Experience</span>
+            <h2 class="text-xl font-bold text-white mt-1">Public Hearse Tour</h2>
+            <p class="text-gray-400 text-sm mt-1">Ride Austin's haunted streets in a classic Cadillac hearse limo.</p>
+          </div>
+          <div class="text-2xl font-bold text-white mb-4">$99<span class="text-sm font-normal text-gray-400"> / person</span></div>
+          <div class="grid grid-cols-3 gap-2 mb-4">
+            <div class="bg-gray-900 rounded-lg p-2 text-center">
+              <div class="text-purple-400 text-xs font-semibold uppercase tracking-widest leading-tight mb-0.5">Duration</div>
+              <div class="text-white text-sm font-semibold">~3 hrs</div>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-2 text-center">
+              <div class="text-purple-400 text-xs font-semibold uppercase tracking-widest leading-tight mb-0.5">Capacity</div>
+              <div class="text-white text-sm font-semibold">Up to 6</div>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-2 text-center">
+              <div class="text-purple-400 text-xs font-semibold uppercase tracking-widest leading-tight mb-0.5">Type</div>
+              <div class="text-white text-sm font-semibold">Public</div>
+            </div>
+          </div>
+          <ul class="text-gray-400 text-sm space-y-1.5 mb-5">
+            <li class="flex items-center gap-2">{{ check() }}BYOB — water &amp; sodas provided</li>
+            <li class="flex items-center gap-2">{{ check() }}Clay Pit 2-for-1 coupon included</li>
+            <li class="flex items-center gap-2">{{ check() }}Tue–Sun, 7:00 PM</li>
+          </ul>
+          <div class="flex gap-2 mt-auto">
+            <a href="{{ client.bookingUrl }}" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-2 bg-purple-700 hover:bg-purple-800 text-white rounded-lg font-semibold text-sm transition-colors">Book Now</a>
+            <a href="{{ '/tours/public-hearse-tour/' | url }}" class="flex-1 text-center py-2 border border-gray-600 hover:border-purple-500 text-gray-300 hover:text-white rounded-lg font-semibold text-sm transition-colors">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Public Paranormal Investigation -->
+      <div class="bg-gray-800 border border-gray-700 rounded-2xl overflow-hidden flex flex-col">
+        <img src="{{ '/assets/images/public-pi.jpg' | url }}" alt="Paranormal Investigation" class="w-full h-40 object-cover object-[center_35%]">
+        <div class="p-5 flex flex-col flex-1">
+          <div class="mb-3">
+            <span class="text-purple-400 text-xs font-semibold uppercase tracking-widest">Public · Hands-On</span>
+            <h2 class="text-xl font-bold text-white mt-1">Paranormal Investigation</h2>
+            <p class="text-gray-400 text-sm mt-1">Go hands-on with spirits at The Clay Pit's historic Bertram Building.</p>
+          </div>
+          <div class="text-2xl font-bold text-white mb-4">$59<span class="text-sm font-normal text-gray-400"> / person</span></div>
+          <div class="grid grid-cols-3 gap-2 mb-4">
+            <div class="bg-gray-900 rounded-lg p-2 text-center">
+              <div class="text-purple-400 text-xs font-semibold uppercase tracking-widest leading-tight mb-0.5">Duration</div>
+              <div class="text-white text-sm font-semibold">~2 hrs</div>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-2 text-center">
+              <div class="text-purple-400 text-xs font-semibold uppercase tracking-widest leading-tight mb-0.5">Capacity</div>
+              <div class="text-white text-sm font-semibold">Up to 10</div>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-2 text-center">
+              <div class="text-purple-400 text-xs font-semibold uppercase tracking-widest leading-tight mb-0.5">Type</div>
+              <div class="text-white text-sm font-semibold">Public</div>
+            </div>
+          </div>
+          <ul class="text-gray-400 text-sm space-y-1.5 mb-5">
+            <li class="flex items-center gap-2">{{ check() }}Pro equipment provided (Spirit Box, EMF &amp; more)</li>
+            <li class="flex items-center gap-2">{{ check() }}Historic Bertram Building (est. 1850s)</li>
+            <li class="flex items-center gap-2">{{ check() }}Saturdays, 10:30 PM</li>
+          </ul>
+          <div class="flex gap-2 mt-auto">
+            <a href="{{ client.bookingUrl }}" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-2 bg-purple-700 hover:bg-purple-800 text-white rounded-lg font-semibold text-sm transition-colors">Book Now</a>
+            <a href="{{ '/tours/paranormal-investigation/' | url }}" class="flex-1 text-center py-2 border border-gray-600 hover:border-purple-500 text-gray-300 hover:text-white rounded-lg font-semibold text-sm transition-colors">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Row 2: 2 private tours, centered -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:max-w-[66.666%] mx-auto">
+
+      <!-- Private Hearse Tour -->
+      <div class="bg-gray-800 border border-purple-800 rounded-2xl overflow-hidden flex flex-col">
+        <img src="{{ '/assets/images/black-interior.jpg' | url }}" alt="Private Hearse Tour" class="w-full h-40 object-cover">
+        <div class="p-5 flex flex-col flex-1">
+          <div class="mb-3">
+            <span class="text-purple-400 text-xs font-semibold uppercase tracking-widest">Private · Your Group Only</span>
+            <h2 class="text-xl font-bold text-white mt-1">Private Hearse Tour</h2>
+            <p class="text-gray-400 text-sm mt-1">The whole hearse reserved for your group — custom pickup anywhere downtown.</p>
+          </div>
+          <div class="text-2xl font-bold text-white mb-1">From $125<span class="text-sm font-normal text-gray-400"> / person</span></div>
+          <div class="text-gray-500 text-xs mb-4">First 2 at $125 · Additional at $79</div>
+          <div class="grid grid-cols-3 gap-2 mb-4">
+            <div class="bg-gray-900 rounded-lg p-2 text-center">
+              <div class="text-purple-400 text-xs font-semibold uppercase tracking-widest leading-tight mb-0.5">Duration</div>
+              <div class="text-white text-sm font-semibold">~3 hrs</div>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-2 text-center">
+              <div class="text-purple-400 text-xs font-semibold uppercase tracking-widest leading-tight mb-0.5">Capacity</div>
+              <div class="text-white text-sm font-semibold">Up to 6</div>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-2 text-center">
+              <div class="text-purple-400 text-xs font-semibold uppercase tracking-widest leading-tight mb-0.5">Type</div>
+              <div class="text-white text-sm font-semibold">Private</div>
+            </div>
+          </div>
+          <ul class="text-gray-400 text-sm space-y-1.5 mb-5">
+            <li class="flex items-center gap-2">{{ check() }}Entire hearse reserved for your group</li>
+            <li class="flex items-center gap-2">{{ check() }}Custom pickup &amp; drop-off downtown</li>
+            <li class="flex items-center gap-2">{{ check() }}Tue–Sun, 8:00 PM</li>
+          </ul>
+          <div class="flex gap-2 mt-auto">
+            <a href="{{ client.bookingUrl }}" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-2 bg-purple-700 hover:bg-purple-800 text-white rounded-lg font-semibold text-sm transition-colors">Book Now</a>
+            <a href="{{ '/tours/private-hearse-tour/' | url }}" class="flex-1 text-center py-2 border border-gray-600 hover:border-purple-500 text-gray-300 hover:text-white rounded-lg font-semibold text-sm transition-colors">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Private Paranormal Investigation -->
+      <div class="bg-gray-800 border border-purple-800 rounded-2xl overflow-hidden flex flex-col">
+        <img src="{{ '/assets/images/para1.jpg' | url }}" alt="Private Paranormal Investigation" class="w-full h-40 object-cover">
+        <div class="p-5 flex flex-col flex-1">
+          <div class="mb-3">
+            <span class="text-purple-400 text-xs font-semibold uppercase tracking-widest">Private · Your Group Only</span>
+            <h2 class="text-xl font-bold text-white mt-1">Private Paranormal Investigation</h2>
+            <p class="text-gray-400 text-sm mt-1">The full investigation experience — no strangers, just your group and the spirits.</p>
+          </div>
+          <div class="text-2xl font-bold text-white mb-1">From $125<span class="text-sm font-normal text-gray-400"> / person</span></div>
+          <div class="text-gray-500 text-xs mb-4">First 2 at $125 · Additional at $79</div>
+          <div class="grid grid-cols-3 gap-2 mb-4">
+            <div class="bg-gray-900 rounded-lg p-2 text-center">
+              <div class="text-purple-400 text-xs font-semibold uppercase tracking-widest leading-tight mb-0.5">Duration</div>
+              <div class="text-white text-sm font-semibold">~2 hrs</div>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-2 text-center">
+              <div class="text-purple-400 text-xs font-semibold uppercase tracking-widest leading-tight mb-0.5">Capacity</div>
+              <div class="text-white text-sm font-semibold">Min. 2</div>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-2 text-center">
+              <div class="text-purple-400 text-xs font-semibold uppercase tracking-widest leading-tight mb-0.5">Type</div>
+              <div class="text-white text-sm font-semibold">Private</div>
+            </div>
+          </div>
+          <ul class="text-gray-400 text-sm space-y-1.5 mb-5">
+            <li class="flex items-center gap-2">{{ check() }}Exclusive to your group — no shared space</li>
+            <li class="flex items-center gap-2">{{ check() }}Professional equipment provided</li>
+            <li class="flex items-center gap-2">{{ check() }}Fridays, 10:30 PM</li>
+          </ul>
+          <div class="flex gap-2 mt-auto">
+            <a href="{{ client.bookingUrl }}" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-2 bg-purple-700 hover:bg-purple-800 text-white rounded-lg font-semibold text-sm transition-colors">Book Now</a>
+            <a href="{{ '/tours/paranormal-investigation/' | url }}#private" class="flex-1 text-center py-2 border border-gray-600 hover:border-purple-500 text-gray-300 hover:text-white rounded-lg font-semibold text-sm transition-colors">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Not sure? CTA -->
+<section class="bg-gray-900 border-t border-gray-800 py-12 px-4 text-center">
+  <div class="max-w-2xl mx-auto">
+    <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">Not sure which tour is right for you?</h2>
+    <p class="text-gray-400 text-lg mb-6">We're happy to help. Drop us a message and we'll point you in the right direction.</p>
+    <a href="{{ '/#contact' | url }}" class="inline-flex items-center px-6 py-3 border border-purple-600 hover:bg-purple-700 text-purple-300 hover:text-white rounded-lg font-semibold transition-colors">
+      Get in Touch
+    </a>
+  </div>
+</section>
