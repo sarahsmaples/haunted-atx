@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes bats-drop {
+  0%   { transform: translateY(-100%); }
+  60%  { transform: translateY(14px); }
+  75%  { transform: translateY(-10px); }
+  88%  { transform: translateY(6px); }
+  100% { transform: translateY(0); }
+}
+
+.bats-drop {
+  transform: translateY(-100%);
+  transform-origin: top center;
+
+  &.is-visible {
+    animation: bats-drop 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
 @keyframes skelly-pop {
   0%   { transform: translateY(18px) rotate(-4deg); }
   60%  { transform: translateY(-8px) rotate(3deg); }
@@ -176,6 +193,12 @@
     font-size: 1rem;
     line-height: 1.5rem;
   }
+}
+
+/* ── Image sliders (intro gallery + guides) ─────────────────────────────── */
+@keyframes img-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 /* ── Marquee banner ─────────────────────────────────────────────────────── */
@@ -385,17 +408,13 @@
 }
 
 .ig-track {
-  display: flex;
+  display: inline-flex;
   height: 100%;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
   gap: 0;
-}
+  animation: img-scroll 35s linear infinite;
+  will-change: transform;
 
-.ig-track::-webkit-scrollbar {
-  display: none;
+  &.paused { animation-play-state: paused; }
 }
 
 .ig-img {
@@ -443,16 +462,13 @@
 }
 
 .gs-track {
-  display: flex;
+  display: inline-flex;
   height: 100%;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
   gap: 0.5rem;
-  padding: 0 0.25rem;
+  animation: img-scroll 35s linear infinite;
+  will-change: transform;
 
-  &::-webkit-scrollbar { display: none; }
+  &.paused { animation-play-state: paused; }
 }
 
 .gs-img {
@@ -464,30 +480,6 @@
   border-radius: 0.5rem;
 }
 
-.gs-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  background: rgba(0, 0, 0, 0.45);
-  color: white;
-  border: none;
-  font-size: 3.5rem;
-  line-height: 1;
-  padding: 0.25rem 0.75rem;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.15s ease, background 0.15s ease;
-  border-radius: 0 0.5rem 0.5rem 0;
-
-  &:hover {
-    opacity: 1;
-    background: rgba(0, 0, 0, 0.7);
-  }
-}
-
-.gs-arrow-left { left: 0; border-radius: 0.5rem 0 0 0.5rem; }
-.gs-arrow-right { right: 0; border-radius: 0 0.5rem 0.5rem 0; }
 
 .ig-overlay {
   position: absolute;

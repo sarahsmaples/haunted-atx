@@ -136,12 +136,13 @@ if (galleries.length) {
   });
 }
 
-// Shared auto-scroll factory using requestAnimationFrame (iOS-compatible)
-function makeSlider(track, imgSelector, arrowLeftSel, arrowRightSel, shuffled) {
+// Image slider factory — CSS animation based, seamless on all devices including iOS
+function makeSlider(trackId, imgSelector, shuffle) {
+  const track = document.getElementById(trackId);
   if (!track) return;
 
-  // Optional shuffle
-  if (shuffled) {
+  // Shuffle
+  if (shuffle) {
     const imgs = Array.from(track.querySelectorAll(imgSelector));
     for (let i = imgs.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -150,83 +151,35 @@ function makeSlider(track, imgSelector, arrowLeftSel, arrowRightSel, shuffled) {
     }
   }
 
-  // Clone for seamless loop
+  // Clone all images so translateX(-50%) loops seamlessly
   Array.from(track.querySelectorAll(imgSelector)).forEach(img => {
     track.appendChild(img.cloneNode(true));
   });
 
-  const scrollAmt = () => track.clientWidth * 0.75;
-  const getHalf  = () => track.scrollWidth / 2;
-
-  let paused = false;
-  let resumeTimer = null;
-  let lastTime = null;
-  let rafId = null;
-
-  function tick(ts) {
-    if (!paused) {
-      if (lastTime !== null) {
-        const delta = ts - lastTime;
-        track.scrollLeft += delta * 0.05; // ~1px per 20ms at 60fps
-        if (track.scrollLeft >= getHalf()) track.scrollLeft -= getHalf();
-      }
-      lastTime = ts;
-    } else {
-      lastTime = null;
-    }
-    rafId = requestAnimationFrame(tick);
-  }
-
-  rafId = requestAnimationFrame(tick);
-
-  function pause() {
-    paused = true;
-    clearTimeout(resumeTimer);
-  }
-
-  function pauseThenResume() {
-    pause();
-    resumeTimer = setTimeout(() => { paused = false; }, 3000);
-  }
-
-  const arrowLeft  = document.querySelector(arrowLeftSel);
-  const arrowRight = document.querySelector(arrowRightSel);
-
-  if (arrowLeft) arrowLeft.addEventListener('click', () => {
-    pauseThenResume();
-    if (track.scrollLeft < scrollAmt()) track.scrollLeft += getHalf();
-    track.scrollBy({ left: -scrollAmt(), behavior: 'smooth' });
-  });
-  if (arrowRight) arrowRight.addEventListener('click', () => {
-    pauseThenResume();
-    track.scrollBy({ left: scrollAmt(), behavior: 'smooth' });
-    setTimeout(() => {
-      if (track.scrollLeft >= getHalf()) track.scrollLeft -= getHalf();
-    }, 600);
-  });
-
-  track.addEventListener('mouseenter', pause);
-  track.addEventListener('mouseleave', () => { paused = false; });
-  track.addEventListener('touchstart', pauseThenResume, { passive: true });
+  // Pause on touch, resume on lift
+  track.addEventListener('touchstart', () => track.classList.add('paused'), { passive: true });
+  track.addEventListener('touchend',   () => track.classList.remove('paused'));
 }
 
-// Intro Gallery Strip
-makeSlider(
-  document.getElementById('igTrack'),
-  '.ig-img',
-  '.ig-arrow-left',
-  '.ig-arrow-right',
-  true
-);
+makeSlider('igTrack', '.ig-img', true);
+makeSlider('gsTrack', '.gs-img', true);
 
-// Guides Slider
-makeSlider(
-  document.getElementById('gsTrack'),
-  '.gs-img',
-  '.gs-arrow-left',
-  '.gs-arrow-right',
-  true
-);
+// Bats scroll trigger — watch Ghost Hosts section, drop bats in when visible
+const batImgs = document.querySelectorAll('.bats-drop');
+if (batImgs.length) {
+  const batsSection = batImgs[0].closest('section');
+  if (batsSection) {
+    const batsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          batImgs.forEach(bat => bat.classList.add('is-visible'));
+          batsObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.1 });
+    batsObserver.observe(batsSection);
+  }
+}
 
 // Desktop: click to toggle dropdown, click outside to close
 if (toursMenuItem && toursDropdown && toursToggle && window.matchMedia("(min-width: 989px)").matches) {
