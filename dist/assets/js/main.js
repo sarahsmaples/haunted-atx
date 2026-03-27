@@ -1,9 +1,9 @@
-// Hero video iOS autoplay fallback
+// Hero video iOS autoplay fallback — hide if autoplay is blocked (e.g. Low Power Mode)
 const heroVideo = document.getElementById('heroVideo');
 if (heroVideo) {
   heroVideo.muted = true;
   const p = heroVideo.play();
-  if (p && p.catch) p.catch(() => {});
+  if (p && p.catch) p.catch(() => { heroVideo.style.display = 'none'; });
 }
 
 // Mobile menu toggle
