@@ -1219,6 +1219,9 @@ video {
 .underline {
   text-decoration-line: underline;
 }
+.opacity-50 {
+  opacity: 0.5;
+}
 .opacity-80 {
   opacity: 0.8;
 }
@@ -1936,6 +1939,10 @@ video {
   .md\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .md\:\[opacity\:0\.85\] {
+    opacity: 0.85;
   }
 }
 @media (min-width: 989px) {
