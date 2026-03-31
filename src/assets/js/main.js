@@ -136,33 +136,17 @@ if (galleries.length) {
   });
 }
 
-// Image slider factory — CSS animation based, seamless on all devices including iOS
-function makeSlider(trackId, imgSelector, shuffle) {
+// Image slider factory — images are duplicated in the template (like the marquee),
+// so translateX(-50%) loops seamlessly with no JS cloning needed.
+function makeSlider(trackId) {
   const track = document.getElementById(trackId);
   if (!track) return;
-
-  // Shuffle
-  if (shuffle) {
-    const imgs = Array.from(track.querySelectorAll(imgSelector));
-    for (let i = imgs.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      track.appendChild(imgs[j]);
-      imgs.splice(j, 1);
-    }
-  }
-
-  // Clone all images so translateX(-50%) loops seamlessly
-  Array.from(track.querySelectorAll(imgSelector)).forEach(img => {
-    track.appendChild(img.cloneNode(true));
-  });
-
-  // Pause on touch, resume on lift
   track.addEventListener('touchstart', () => track.classList.add('paused'), { passive: true });
   track.addEventListener('touchend',   () => track.classList.remove('paused'));
 }
 
-makeSlider('igTrack', '.ig-img', true);
-makeSlider('gsTrack', '.gs-img', true);
+makeSlider('igTrack');
+makeSlider('gsTrack');
 
 // Bats scroll trigger — watch Ghost Hosts section, drop bats in when visible
 const batImgs = document.querySelectorAll('.bats-drop');
